@@ -1,0 +1,174 @@
+Given a function \(u \colon \R^{n-1} \to \R\) and a subset \(G \subset \R^{n-1}\), we define the \emph{graph of \(u\) over \(G\)} as
+\[
+    \Gamma(u,G) \coloneq \{ (x,u(x)) \in \R^n \colon x \in G\}.
+\]
+
+\begin{defn}
+    A \emph{polyhedral set} is a finite, non empty intersection of closed half-spaces.
+    
+    A continuous function \(u \colon G \subset \R^n \to \R\) is said to be \emph{finitely piecewise affine} if there exists a finite partition of polyhedral sets \(\{G_i\}_{i=1}^k\) of \(G\) such that \(u\) is affine on each \(G_i\).
+
+    A set \(E\subset \R^n\) is said to have \emph{polyhedral boundary} if for every \(x \in \de E\) there exist \(r>0\), a finitely piecewise affine function \(u \colon (-r,r)^{n-1} \to \R\) and an isometry \(T \colon \R^n \to \R^n\) with \(T(x)=0\) such that
+    \[
+    \begin{aligned}
+        T(\de E) \cap (-r,r)^n &= G(u,(-r,r)^{n-1})\\
+        T(E) \cap (-r,r)^n &= \{ (z,t) \in (-r,r)^{n-1}\times (-r,r) \colon t>u(z) \}.
+    \end{aligned}
+    \]
+\end{defn}
+\begin{rmk}
+    It's not hard to prove that any function \(u \in C^1_c(\R^n)\) can be approximated by compactly supported finitely piecewise affine functions in the \(C^1\)-norm.
+\end{rmk}
+
+\begin{lemma}[Approximation by finitely piecewise affine functions]\label{lemma: approximation by finitely piecewise affine functions}
+    For every \(u \in BV(\R^n)\) there exists a sequence \(u_h \colon \R^n \to \R\) of finitely piecewise affine functions such that \(u_h \to u\) in the BV-strict sense, that is, \(u_h \to u\) in \(L^1(\R^n)\) and
+    \[
+        \int_{\R^n} |\nabla u_h| \dif z \to |Du|(\R^n).
+    \]
+\end{lemma}
+\begin{proof}
+    \emph{Step 1}. Assume that \(u \in C^1(\R^n) \cap BV(\R^n)\). Take a sequence of cutoff functions \(\varphi_h \colon \R^n \to \R\), that is, for some sequence \(R_h \nearrow \infty\), smooth functions with compact support in \(B_{R_h+1/h}\), \(0 \le \vp \le 1\) on \(\R^n\), \(\varphi_h = 1\) on \(B_{R_h}\) and \(\|\nabla \vp_h\|_{C^0} \le C\), \(C>0\) not depending on \(h\). Then \(v_h \coloneq u\vp_h \in C^1_c(\R^n)\), \(v_h \to u\) in \(L^1(\R^n)\), and
+    \[
+    \begin{aligned}
+        \int_{\R^n} |\nabla v_h| \dif x &= \int_{B_{R_h}}|\nabla u| \dif x + \int_{B_{R_h+1/h}\setminus B_{R_h}} |\nabla v_h| \dif x \\
+        &\to \int_{\R^n}|\nabla u| \dif x \qquad \text{ as }h \to \infty.
+    \end{aligned}
+    \]
+    For every \(h \in \N\), take a sequence \(v_h^k \colon \R^n \to \R\) of compactly supported finitely piecewise affine functions approximating each \(v_h\) in \(C^1_c(\R^n)\) with respect to the \(C^1\)-norm. Then in particular \(v_h^k \to v_h\) in \(L^1(\R^n)\) and 
+    \[
+        \lim_{k\to \infty}\int_{\R^n} |\nabla v_h^k| \dif x = \int_{\R^n}|\nabla v_h|\dif x.
+    \]
+    With a diagonal argument, we can extract a diagonal sequence \(u_h \coloneq v_h^{k(h)}\) that satisfies the required properties.
+    
+    \emph{Step 2}. Now take any \(u \in BV(\R^n)\), and fix a kernel mollifier \(\rho \in C^\infty_c(\R^n)\). Let \(v_h = u \star \rho_{\eps_h}\), with \(\eps_h \to 0\), and for each \(h \in \N\) take a sequence \(v_h^k \colon \R^n \to \R\) of finitely piecewise affine functions approximating each \(v_h\), i.e., such that \(v_h^k \to v_h\) in \(L^1(\R^n)\) and
+    \[
+        \lim_{k\to \infty}\int_{\R^n} |\nabla v_h^k| \dif x = \int_{\R^n}|\nabla v_h|\dif x.
+    \]
+    By the properties of mollification,
+    \[
+        \lim_{h \to \infty} \int_{\R^n} |\nabla u_h| \dif x = |D\chi_E|(\R^n)=P(E),
+    \]
+    so, as before, we can extract a diagonal sequence \(u_h \coloneq v_h^{k(h)}\) that satisfies the required properties.
+\end{proof}
+
+\begin{thm}[Polyhedral approximation]\label{thm: polyhedral approximation}
+    Let \(E \subset \R^n\) be a set with \(|E|<\infty\) and \(P(E)< \infty\). Then there exists a sequence of bounded sets \(E_h \subset \R^n\) with polyhedral boundary such that
+    \[
+        E_h \to E, \qquad P(E_h) \to P(E).
+    \]
+\end{thm}
+
+%\begin{rmk}
+%    Since \(E_h \to E\), we also have that \(D\chi_{E_h} \weakstarto D\chi_{E}\). Moreover, \(|D\chi_{E_h}|(\R^n) \to |D\chi_E|(\R^n)\), hence \(|D\chi_{E_h}|\weakstarto |D\chi_E|\).
+%\end{rmk}
+
+\begin{rmk}
+In the proof, we are going to use the following formula: for every measurable set \(E\subset \R^n\) and \(u,v \in L^1_{loc}(\R^n)\), 
+\begin{equation}\label{eq: L^1 norm as area}
+    \int_E|u-v| \dif x = \int_\R \Leb^n(E \cap \{u>t\}\triangle \{v>t\}) \dif t,
+\end{equation}
+where \(A\triangle B = (A\setminus B) \cup (B \setminus A)\) is the symmetric difference. This is the usual interpretation of the left hand side as the area between the graph of \(u\) and the graph of \(v\) over \(E\). Indeed, consider separately \(E_+=E \cap \{u>v\}\) and \(E_-=E \cap \{u<v\}\). By Fubini's theorem,
+\begin{align*}
+    \int_{E^+} |u-v| \dif x &= \int_{E_+} \Leb^1((v(x),u(x))) \dif x \\
+    &= \Leb^{n+1}(\{(x,t) \in E\times\R \colon v(x)<t<u(x)\}) \\
+    &= \int_\R \Leb^n(\{x \in E \colon v(x)<t<u(x)\}) \dif t \\
+    &= \int_\R \Leb^n(E \cap \{u>t\}\setminus \{v>t\}) \dif t
+\end{align*}
+and similarly for \(E_-\).
+\end{rmk}
+
+We are going to use the following lemma, which is independent from all the results given in these notes.
+\begin{lemma}[{\cite[Lemma~15.2]{Maggi_2012}}]\label{lemma: intersection with balls}
+    Let \(E \subset \R^n\) be a set of locally finite perimeter and let \(x \in \R^n\). Then for every \(R>0\) the set \(E\cap B_R(x)\) has finite perimeter in \(\R^n\). Moreover, for a.e. \(R>0\)
+    \[
+    \begin{aligned}
+        P(E\cap B_R(x))=P(E;B_R(x)) + \Haus^{n-1}(E \cap \de B_R(x)).
+    \end{aligned}
+    \]
+\end{lemma}
+%\begin{proof}
+%    Without loss of generality let \(x=0\). The fact that \(E \cap B_R\) has finite perimeter follows from 
+%    \[
+%        P(E\cap B_R) = P(E\cap B_R;B_{R+1}) \le P(E;B_{R+1}) + P(B_R;B_{R+1}) < \infty.
+%    \]
+%    The rest of the proof can be found in \cite[Lemma~15.2]{Maggi_2012}.
+%\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm: polyhedral approximation}]
+    \emph{Step 1.} By Lemma~\ref{lemma: approximation by finitely piecewise affine functions}, there is a sequence of piecewise affine functions \(u_h \colon \R^n \to \R\) such that \(u_h \to \chi_E\) in \(L^1(\R^n)\) and 
+    \begin{equation}\label{eq: |Du_h|(R^n) -> P(E)}
+        \lim_{h \to \infty} \int_{\R^n} |\nabla u_h| \dif x = P(E).
+    \end{equation}
+
+    For every \(h \in \N\) and \(t \in (0,1)\) consider the set
+    \[
+        E_h^t \coloneq \{u_h >t\}.
+    \]
+    Since \(u_h\) is piecewise affine, \(\de E_h^t \subset \{u_h=t\}\) is always a polyhedra. We are going to choose a suitable \(t \in (0,1)\). 
+    
+    By \eqref{eq: L^1 norm as area} we have that 
+    \[
+    \begin{aligned}
+        \int_0^1 \int_{\R^n}|\chi_{E^t_h}-\chi_{E}| \dif x \dif t & = \int_0^1 \int_{\R^n}|\chi_{\{u_h>t\}}- \chi_{\{\chi_E>t\}}| \dif x \dif t \\
+        &= \int_0^1 \Leb^n(\{u_h >t\} \triangle \{\chi_E>t\}) \dif t\\
+        &\le \int_\R \Leb^n(B \cap \{u_h >t\} \triangle \{\chi_E>t\}) \dif t\\
+        &= \int_{\R^n} |u_h-\chi_E| \dif x \to 0,
+    \end{aligned}
+    \]
+    so \(E_h^t \to E\) for a.e. \(t \in (0,1)\), and in particular
+    \begin{equation}\label{eq: P(E) < liminf_h P(E_h^t) a.e. t}
+        P(E) \le \liminf_{h \to \infty} P(E_h^t) \text{ for a.e. }t \in (0,1)
+    \end{equation}
+    by the lower semicontinuity of the perimeter.
+    By \eqref{eq: |Du_h|(R^n) -> P(E)},
+    \[
+    \begin{aligned}
+        P(E) &= \lim_{h \to \infty}\int_{\R^n} |\nabla u_h| \dif x &&\\
+        &= \lim_{h \to \infty} \int_\R P(\{u_h >t\}) \dif t &&\text{(coarea formula)}\\
+        & \ge \int_\R \liminf_{h \to \infty} P(\{u_h>t\}) \dif t &&\text{(Fatou's lemma)}\\
+        & \ge \int_0^1 \liminf_{h \to \infty} P(E_h^t) \dif t &&\\
+        &\ge P(E),
+    \end{aligned}
+    \]
+    having used \eqref{eq: P(E) < liminf_h P(E_h^t) a.e. t} in the last inequality. Therefore,
+    \[
+        P(E)= \int_0^1 \liminf_{h \to \infty} P(E_h^t) \dif t,
+    \]
+    and again by \eqref{eq: P(E) < liminf_h P(E_h^t) a.e. t} it must be
+    \begin{equation*}
+        P(E) = \liminf_{h \to \infty}P(E_h^t) \qquad \text{ for a.e. }t \in (0,1).
+    \end{equation*}
+    Up to passing to a subsequence (which we don't relabel), 
+    \begin{equation}\label{eq: P(E)=lim_hP(E_h^t;A)}
+        P(E) = \lim_{h \to \infty}P(E_h^t) \qquad \text{ for a.e. }t \in (0,1).
+    \end{equation}
+    Thus we can find \(t \in (0,1)\) such that \(E_h\coloneq E_h^t\) is as required.
+
+
+    \emph{Step 2.} Now suppose that \(E\) is not bounded. We will find a sequence \(R_i \nearrow \infty\) such that \(E \cap B_{R_i} \to E\) and \(P(E \cap B_{R_i}) \to P(E)\). Then we just need to approximate each \(E \cap B_{R_i}\) using the previous step. Since \(|E|<\infty\), \(E\cap B_{R_i} \to E\)
+    and whenever \(R_i \to\infty\), so we have to choose \(R_i\) only worrying to achieve \(P(E\cap B_{R_i}) \to P(E)\). First notice that, since \(P(E)<\infty\) (i.e. \(|D\chi_E|\) is a finite measure), whenever \(R_i \nearrow \infty\) we have
+    \begin{align*}
+        \lim_{i \to \infty}P(E;\R^n \setminus B_{R_i}) = \lim_{i \to \infty}|D\chi_E|(\R^n \setminus B_{R_i})=0\\
+        \lim_{i \to \infty}P(E;B_{R_i}) = \lim_{i \to \infty} |D\chi_E|(B_{R_i}) = P(E)
+    \end{align*}
+    by continuity from above and below respectively. By Lemma~\ref{lemma: intersection with balls}, 
+    \begin{equation}\label{eq: decompsition of P(E cap B_R)}
+        P(E\cap B_R) = P(E;B_R) + \Haus^{n-1}(E \cap \de B_R) \quad \text{for a.e. }R>0.
+    \end{equation}
+    By the coarea formula applied to the function \(\rho(x)=|x|\),
+    \[
+        \int_0^\infty \Haus^{n-1}(E \cap \de B_R) \dif R = \int_E |\nabla \rho| \dif x = |E| < \infty
+    \]
+    since \(\nabla \rho(x)=x/|x|\). Therefore, there exists a sequence \(R_i \nearrow \infty\) such that \eqref{eq: decompsition of P(E cap B_R)} holds for every \(R_i\) and 
+    \[
+        \Haus^{n-1}(E \cap \de B_{R_i}) \to 0.
+    \]
+    Hence,
+    \[
+    \begin{aligned}
+        |P(E)-P(E\cap B_{R_i})| &\le |P(E)-P(E;B_{R_i})|+ |P(E;B_{R_i})- P(E \cap B_{R_i})| \\
+        &= |P(E)-P(E;B_{R_i})| + \Haus^{n-1}(E \cap \de B_{R_i}) \to 0.
+    \end{aligned}
+    \]
+    as \(i \to \infty\), as required. 
+\end{proof}

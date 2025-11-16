@@ -1,0 +1,52 @@
+This notes are devoted to the proof of the isoperimetric inequality with the characterization of the equality case, following \cite[\S13.2 and Chapter~14]{Maggi_2012}.
+
+\begin{thm}[Isoperimetric inequality]\label{thm: isoperimetric inequality}
+    For every Lebesgue measurable set \(E \subset \R^n\),
+    \[
+        P(E) \ge n \omega_n^{1/n} |E|^{\frac{n-1}{n}},
+    \]
+    where \(\omega_n = |B_1|\) is the \(n\)-volume of the standard unit ball of \(\R^n\). Moreover, the equality holds if and only if \(E\) is equivalent to a ball, meaning that there exist \(x \in \R^n\) and \(R>0\) (that necessarily satisfies \(|E|=\omega_nR^n\)) such that \(|E \triangle B_R(x)|=0\).
+\end{thm}
+In other words, we prove that for every \(R>0\)
+\[
+    \inf \{ P(E) \colon E \subset \R^n, |E|=\omega_n R^n\} = n \omega_n R^{n-1}
+\]
+and it is realized only by sets equivalent to balls of radius \(R\).
+
+When \(n=1\), this is quite easy.
+
+\begin{thm}[1-dimensional isoperimetric inequality]\label{thm: 1D isoperimetric inequality}
+    If \(E \subset \R\) is a Lebesgue measurable set with \(|E|<\infty\), then
+    \[
+        P(E)\ge 2,
+    \]
+    with equality if and only if \(E\) is equivalent to an interval of length \(|E|\).
+\end{thm}
+\begin{proof}
+    Assume that \(P(E)<\infty\). Then \(E\) is equivalent to a finite union of disjoint open intervals, so \(P(E)=2N\) where \(N\) is the number of intervals.
+\end{proof}
+
+For \(n>1\), the proof of the inequality is not hard: on bounded sets it's just the direct method (cf. Lemma~\ref{lemma: constrained isoperimetric inequality}), and the unbounded case can be obtained by approximating finite perimeter sets with bounded finite perimeter sets. 
+
+The actual work is to characterize the equality, i.e., minimizers of the variational problem
+\begin{equation}\label{eq: isoperimetric problem with perimeter}
+    \inf\{ P(E) \colon E \subset \R^n \text{ Lebesgue measurable}, |E|=m\},
+\end{equation}
+for \(m>0\) fixed.
+A way to proceed is by using the Steiner inequality (cf. Theorem~\ref{thm: steiner inequality}), which states that the Steiner symmetrization does not increase the perimeter. This implies that minimizers must have many symmetries, and it's not hard to deduce that they are balls. Therefore, a sketch of the proof is to show, in order
+\begin{itemize}
+    \item finite perimeter sets can be approximated by bounded sets with polyhedral boundary (cf. Theorem~\ref{thm: polyhedral approximation});
+    \item the Steiner inequality, proving it first on sets with polyhedral boundary and then approximating;
+    \item minimizers of \eqref{eq: isoperimetric problem with perimeter} must be equivalent to balls, using the Steiner inequality.
+\end{itemize}
+
+
+Another approach that I find interesting is considering the problem from the point of view of differential geometry. Consider the class of smooth, connected, compact hypersurfaces that are the boundary of some open bounded set \(\Omega\). The critical points of the \((n-1)\)-area functional (i.e., the \((n-1)\)-Hausdorff measure restricted to the class of such hypersurfaces) with respect to volume preserving variations are called \emph{CMC} (because, by the first variation formula, they have constant mean curvature). Therefore, any minimizer of the variational problem
+\[
+\inf\left\{ \Haus^{n-1}(\Sigma) \left| \ \begin{aligned}
+        &\Sigma = \de \Omega \text{ smooth, connected,}\\
+        &\text{compact hypersurface}, |\Omega|=m
+    \end{aligned}
+    \right.\right\}.
+\]
+(for \(m>0\) fixed) must be CMC and must be stable with respect to volume preserving variations. However, Barbosa and do Carmo (\cite{BarbosaDoCarmo}, cf. Theorem~\ref{thm: Barbosa-do Carmo}) proved that the only smooth, connected, compact hypersurfaces of \(\R^n\) are the round spheres. The proof, sketched in the last section of these notes, is quite simple and exploits the stability inequality to prove that every CMC-stable hypersurface must be totally umbilical, hence, if it's connected, a sphere. 

@@ -1,0 +1,224 @@
+\begin{prop}\label{prop: approximation}
+    Let \(E \subset \R^n\) be a set of locally finite perimeter. Then there exists a sequence \(E_h \subset \R^n\) of open sets with smooth boundary and \(\eps_h \searrow 0\) such that
+    \begin{enumerate}[label=(\roman*)]
+        \item \(E_h \xrightarrow{loc} E\),
+        \item \(\sup_{h \in \N} P(E_h;B_R)< \infty\) for every \(R>0\),
+        \item \(\de E_h \subset \de E + B_{\eps_h}\) for every \(h \in \N\).
+    \end{enumerate}
+    In particular, 
+    \begin{enumerate}[label=(\roman*)]
+        \setcounter{enumi}{3}
+        \item \(D\chi_{E_h} \weakstarto D\chi_E\), 
+        \item \(|D\chi_{E_h}| \weakstarto |D\chi_E|\),
+        \item \(P(E_h;A) \to P(E;A)\) for every bounded open set \(A\subset \R^n\) such that \(P(E;\de A)=|D\chi_E|(\de A)=0\).
+    \end{enumerate}
+\end{prop}
+
+\begin{rmk}
+    Properties \((i)\) and \((ii)\) imply \((iv)\) by the usual general fact that, in \(BV_{loc}\), the \(L^1_{loc}\)-convergence implies the weak* convergence of the distributional gradients as Radon measures.
+\end{rmk}
+
+
+Recall the following result about weak* convergence of Radon measures.
+\begin{lemma}\label{lemma: weakstar convergence}
+    Let \(\mu_h\), \(\mu\) be Radon measures on \(\R^n\) and assume that \(\mu_h \weakstarto \mu\). 
+    \begin{enumerate}[label=(\alph*)]
+    \item Let \(R_i \nearrow \infty\) such that
+    \[
+        \lim_{h \to \infty} |\mu_h|(B_{R_i})= |\mu|(B_{R_i}) \qquad \forall i \in \N.
+    \]
+    Then \(|\mu_h| \weakstarto |\mu|\).
+    \item For every open subset \(A \subset \R^n\)
+    \[
+        \mu(A) \le \liminf_{h \to \infty} \mu_h(A).
+    \]
+    \item For every compact subset \(K \subset \R^n\),
+    \[
+        \mu(K) \ge \limsup_{h \to \infty} \mu_h(K).
+    \]
+    \item For every bounded Borel set \(B \subset \subset \R^n\) such that \(\mu(\de B)=0\),
+    \[
+        \mu(B) = \lim_{h \to \infty} \mu_h(B).
+    \]
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Points (b),(c) and (d) are standard, so let us prove only (a). Pick 
+\end{proof}
+
+\begin{rmk}
+    In particular, in Proposition~\ref{prop: approximation}, \((vi)\) follows from \((v)\).
+\end{rmk}
+
+We are going to use the following well known result.
+\begin{lemma}[Morse-Sard]\label{lemma: Morse-Sard}
+    
+\end{lemma}
+
+\begin{proof}[Proof of Proposition~\ref{prop: approximation}]
+    Let \((\rho_\eps)_\eps\) be a family of mollifiers and set 
+    \[
+        u_h \coloneq \chi_E \star \rho_{\eps_h}
+    \]
+    for some sequence \(\eps_h \searrow 0\). By the convolution properties, we already know that \(u_h \to \chi_E\) in \(L^1_{loc}(\R^n)\), and \(\nabla u_h \Leb^n = (D\chi_E)\star \rho_{\eps_h}\), hence \(\nabla u_h \Leb^n \weakstarto D\chi_E\) and \(|\nabla u_h| \Leb^n \weakstarto |D\chi_E|\).
+    
+    For every \(t \in (0,1)\) and \(h \in \N\), set
+    \[
+        E_h^t \coloneq \{u_h>t\}.
+    \]
+    Since each \(u_h\) is smooth, by Morse-Sard Lemma~\ref{lemma: Morse-Sard} \(\nabla u_h\ne 0\) on the level set \(\{u_h=t\}\) for a.e. \(t \in (0,1)\), so by the implicit function theorem \(\{u_h=t\}\) is a smooth hypersurface for every \(h\) and for a.e. \(t \in \R\). In this case, since \(\de E_h^t \subset \{u_h=t\}\) by continuity of \(u_h\), we actually have that 
+    \begin{equation}\label{eq: boundary of E_h^t is smooth}
+        \de E_h^t=\{u_h=t\} \text{ is smooth } \forall h \in \N \text{ and for a.e. }t \in (0,1)
+    \end{equation}
+    Moreover,
+    \begin{equation}\label{eq: bdry of E_h^t near bdry of E}
+        \de E_h^t \subset \{u_{\eps_h}=t\} \subset \de E + B_{\eps_h} \qquad \forall h \in \N, t \in (0,1)
+    \end{equation}
+    Indeed, suppose \(u_\eps(x)=t\). Then, since \(\chi_E\) assumes only the values \(0\) and \(1\), it must be that \(B_\eps(x)\) meets both \(\{\chi_E>t\}=E\) and \(\{\chi_E<t\}=\R^n \setminus E\) in sets of positive measure, so in particular \(B_\eps(x) \cap \de E \ne \varnothing\), or equivalently \(\dist(x,\de E) < \eps\).
+    
+    The idea now is to choose a suitable \(t \in (0,1)\) to achieve the required approximation.
+    
+    Fix any bounded Borel set \(B \subset \R^n\). Since \(u_h \to u\) in \(L^1_{loc}\), by \eqref{eq: L^1 norm as area} we have that 
+    \[
+    \begin{aligned}
+        \int_0^1 \int_B|\chi_{E^t_h}-\chi_{E}| \dif x \dif t & = \int_0^1 \int_B|\chi_{\{u_h>t\}}- \chi_{\{\chi_E>t\}}| \dif x \dif t \\
+        &= \int_0^1 \Leb^n(B \cap \{u_h >t\} \triangle \{\chi_E>t\}) \dif t\\
+        &\le \int_\R \Leb^n(B \cap \{u_h >t\} \triangle \{\chi_E>t\}) \dif t\\
+        &= \int_B |u_h-\chi_E| \dif x \to 0,
+    \end{aligned}
+    \]
+    so, 
+    \begin{equation*}
+        E_h^t\cap B \to E\cap B \qquad \text{ for a.e. }t \in (0,1).
+    \end{equation*}
+    In particular, choosing a sequence \(B_i \subset B_{i+1} \nearrow \R^n\), we have that 
+    \begin{equation}\label{eq: E_h^t to E loc}
+        E_h^t \xrightarrow{loc} E \text{ for a.e. }t \in (0,1),
+    \end{equation}
+    and in particular
+    \begin{equation}\label{eq: Dchi_{E_h^t} weak star to Dchi_E}
+        D\chi_{E_h^t} \weakstarto D\chi_E \qquad \text{ for a.e. }t \in (0,1)
+    \end{equation}
+    
+    Let \(A\subset \R^n\) be a bounded open set and assume that \(P(E;\de A)=|\chi_E|(\de A)=0\). Since \(|\nabla u_h| \Leb^n \weakstarto |D\chi_E|\), by Lemma~\ref{lemma: weakstar convergence}(d), 
+    \[
+    \begin{aligned}
+        P(E;A) &= |D\chi_E|(A) = \lim_{h \to \infty}\int_A |\nabla u_h| \dif x &&\\
+        &= \lim_{h \to \infty} \int_\R P(\{u_h >t\};A) \dif t &&\text{(coarea formula)}\\
+        & \ge \int_\R \liminf_{h \to \infty} P(\{u_h>t\};A) \dif t &&\text{(Fatou's lemma)}\\
+        & \ge \int_0^1 \liminf_{h \to \infty} P(E_h^t;A) \dif t \\
+        &\ge P(E;A)
+    \end{aligned}
+    \]
+    having used \eqref{eq: E_h^t to E loc} together with the lower semicontinuity of the perimeter in the last inequality. Therefore,
+    \[
+        P(E;A) \le \liminf_{h \to \infty} P(E_h^t;A) \text{ for a.e. }t \in (0,1)
+    \]
+    and
+    \[
+        P(E;A)= \int_0^1 \liminf_{h \to \infty} P(E_h^t;A) \dif t,
+    \]
+    simultaneously, so it must be
+    \begin{equation}\label{eq: P(E;A)=liminf_hP(E_h^t;A)}
+        P(E;A) = \liminf_{h \to \infty}P(E_h^t;A) \qquad \text{ for a.e. }t \in (0,1),
+    \end{equation}
+    (with the negligible set depending on \(A\)). In particular, since the left hand side is finite by assumption, there exists a subsequence \(E_{h(k)}^t\) with 
+    \[
+        \sup_k P(E_{h(k)}^t;A) < +\infty.
+    \]
+    
+    Take a sequence \(R_i \nearrow \infty\) such that \(P(E;\de B_{R_i})=0\). Indeed, one can prove that such a sequence exists arguing as follows. Let \(\rho(x)=|x|\) be the radius function and consider the push-forward measure \(\mu \coloneq \rho_\sharp |D\chi_E|\), i.e.,
+    \[
+        \mu(A) = |D\chi_E|(\rho^{-1}(A)) = |D\chi_E|(\{ x \in \R^n \colon |x| \in A\})
+    \]
+    for every Borel set \(A \subset \R\). Since \(\rho\) is a proper map, \(\mu\) is a Radon measure, and in particular it has countably many atoms. Thus, \(P(E;\de B_r) = \mu(\{r\})>0\) only for countably many \(r>0\), and a sequence \(R_i \to \infty\) with \(P(E;\de B_{R_i}) = 0\) exists.
+    
+    Letting \(A=B_{R_i}\) in \eqref{eq: P(E;A)=liminf_hP(E_h^t;A)}, we find that for a.e. \(t \in (0,1)\)
+    \[
+        P(E;B_{R_i})= \liminf_{h \to \infty}P(E_h^t;B_{R_i}) \quad \forall i \in \N.
+    \]
+    Up to passing to a subsequence with a diagonal argument (which we don't relabel), we can actually achieve that \(E_h^t\) has the property
+    \[
+        P(E;B_{R_i}) = \lim_{h \to \infty} P(E_{h}^t;B_{R_i}) \qquad \forall i \in \N
+    \]
+    i.e., \(\chi_{E_{h}^t} \to \chi_E\) in the BV-strict sense on every \(B_{R_i}\). In particular, 
+    \[
+        \sup_{h \in \N} P(E_{h}^t;B_R) <+ \infty \qquad \forall R>0,
+    \]
+    so each \(E_{h}^t\) has locally finite perimeter, and \(E_{h}^t \xrightarrow{loc} E\). Then, combining this with \eqref{eq: boundary of E_h^t is smooth} and \eqref{eq: bdry of E_h^t near bdry of E}, for a.e. \(t \in (0,1)\) the sequence \(E_h^t\) is as required.
+\end{proof}
+
+\begin{lemma}\label{lemma: intersection with balls}
+    Let \(E \subset \R^n\) be a set of locally finite perimeter and let \(x \in \R^n\). Then for every \(R>0\) the set \(E\cap B_R(x)\) has finite perimeter in \(\R^n\). Moreover, for a.e. \(R>0\)
+    \[
+    \begin{aligned}
+        P(E\cap B_R(x))=P(E;B_R(x)) + \Haus^{n-1}(E \cap \de B_R(x)).
+    \end{aligned}
+    \]
+\end{lemma}
+\begin{proof}
+    Without loss of generality let \(x=0\). The fact that \(E \cap B_R\) has finite perimeter follows from 
+    \[
+        P(E\cap B_R) = P(E\cap B_R;B_{R+1}) \le P(E;B_{R+1}) + P(B_R;B{R+1}) < \infty.
+    \]
+    The rest of the proof can be found in \cite[Lemma~15.2]{Maggi_2012}.
+\end{proof}
+
+
+\begin{prop}
+    Let \(E \subset \R^n\) be a set of locally finite perimeter. Then, under additional assumptions, the approximation given by Proposition~\ref{prop: approximation} can be improved as follows.
+    \begin{enumerate}[label=(\alph*)]
+        \item If \(|E|<\infty\), then \(E_h \to E\).
+        \item If \(P(E)<\infty\), then \(P(E_h) \to P(E)\).
+        \item If \(|E|<\infty\) and \(P(E)<\infty\), we can choose \(E_h\) to be bounded and such that also \(E_h \to E\) and \(P(E_h) \to P(E)\).
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+\begin{enumerate}[label=(\alph*)]
+    \item If \(|E|<\infty\), then \(\chi_E \in L^1(\R^n)\), so \(u_h \to \chi_E \) in \(L^1(\R^n)\) and by \eqref{eq: L^1 norm as area} we have that 
+    \[
+    \begin{aligned}
+        \int_0^1 \int_{\R^n}|\chi_{E^t_h}-\chi_{E}| \dif x \dif t & = \int_0^1 \int_{\R^n}|\chi_{\{u_h>t\}}- \chi_{\{\chi_E>t\}}| \dif x \dif t \\
+        &= \int_0^1 \Leb^n(\{u_h >t\} \triangle \{\chi_E>t\}) \dif t\\
+        &\le \int_\R \Leb^n(B \cap \{u_h >t\} \triangle \{\chi_E>t\}) \dif t\\
+        &= \int_{\R^n} |u_h-\chi_E| \dif x \to 0,
+    \end{aligned}
+    \]
+    so \(E_h^t \to E\) for a.e. \(t \in (0,1)\).
+    \item If \(P(E)<\infty\), then actually 
+    \[
+        P(E) = \liminf_{h \to \infty} P(E_h^t).
+    \]
+    Indeed, in this case 
+    \[
+        P(E)=\lim_{h \to \infty}\int_{\R^n} |\nabla u_h|\dif x,
+    \]
+    and the proof of \eqref{eq: P(E;A)=liminf_hP(E_h^t;A)} we can thus take \(A=\R^n\).
+    \item We will find a sequence \(R_i \nearrow \infty\) such that \(E \cap B_{R_i} \to E\) and \(P(E \cap B_{R_i}) \to P(E)\). Then we just need to approximate each \(E \cap B_{R_i}\) using Proposition~\ref{prop: approximation}, together with properties (a) and (b). Since \(|E|<\infty\), \(E\cap B_{R_i} \to E\)
+    and whenever \(R_i \to\infty\), so we have to choose \(R_i\) carefully to achieve \(P(E\cap B_{R_i}) \to P(E)\). First notice that, since \(P(E)<\infty\) (i.e. \(|D\chi_E|\) is a finite measure), whenever \(R_i \nearrow \infty\) we have
+    \begin{align*}
+        \lim_{i \to \infty}P(E;\R^n \setminus B_{R_i}) = \lim_{i \to \infty}|D\chi_E|(\R^n \setminus B_{R_i})=0\\
+        \lim_{i \to \infty}P(E;B_{R_i}) = \lim_{i \to \infty} |D\chi_E|(B_{R_i}) = P(E)
+    \end{align*}
+    by continuity from above and below respectively. By Lemma~\ref{lemma: intersection with balls}, 
+    \begin{equation}\label{eq: decompsition of P(E cap B_R)}
+        P(E\cap B_R) = P(E;B_R) + \Haus^{n-1}(E \cap \de B_R) \quad \text{for a.e. }R>0.
+    \end{equation}
+    By the coarea formula applied to the function \(\rho(x)=|x|\),
+    \[
+        \int_0^\infty \Haus^{n-1}(E \cap \de B_R) \dif R = \int_E |\nabla \rho| \dif x = |E| < \infty
+    \]
+    since \(\nabla \rho(x)=x/|x|\). Therefore, there exists a sequence \(R_i \nearrow \infty\) such that \eqref{eq: decompsition of P(E cap B_R)} holds for every \(R_i\) and 
+    \[
+        \Haus^{n-1}(E \cap \de B_{R_i}) \to 0.
+    \]
+    Hence,
+    \[
+    \begin{aligned}
+        |P(E)-P(E\cap B_{R_i})| &\le |P(E)-P(E;B_{R_i})|+ |P(E;B_{R_i})- P(E \cap B_{R_i})| \\
+        &= |P(E)-P(E;B_{R_i})| + \Haus^{n-1}(E \cap \de B_{R_i}) \to 0.
+    \end{aligned}
+    \]
+    as \(i \to \infty\), as required. \qedhere
+\end{enumerate}
+\end{proof}

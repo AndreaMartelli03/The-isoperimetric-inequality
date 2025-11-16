@@ -1,0 +1,58 @@
+\begin{lemma}[Constrained isoperimetric inequality]\label{lemma: constrained isoperimetric inequality}
+    Let \(m,R>0\) with \(m<\omega_nR^n\). Then 
+    \[
+        \alpha(m,R) \coloneq \inf\{ P(E) \colon E \subset B_R \text{ measurable, } |E|=m\}
+    \]
+    is realized, and every minimizer is equivalent to a ball. In particular, \(\alpha(m,R)\) is the perimeter of a ball of volume \(m\), that is
+    \[
+        \alpha(m,R) = n \omega_n^{1/n} m^{\frac{n-1}{n}}.
+    \]
+\end{lemma}
+\begin{proof}
+    That \(\alpha(m,R)\) is realized is a consequence of the Direct Method, as bounded sets in \(BV(B_R)\) are precompact with respect to the BV-strict convergence, the family of characteristic functions of sets in \(B_R\) is closed, and any limit in the class preserves the volume. 
+
+    Let us now assume that \(E \subset B_R\) satisfies \(|E|=m\) and \(P(E)=\alpha(m,R)\). Since \(|E\triangle E^{(1)}|=0\), we may assume that \(E=E^{(1)}\). For every unit vector \(v \in \R^n\), \(|v|=1\), by Theorem~\ref{thm: steiner inequality} we have that \(P(S_v(E))\le P(E)\). On the other hand, by the properties of the Steiner symmetrization \(|S_v(E)|=m\) and \(\diam(S_v(E)) \le \diam E<R\), so \(P(S_v(E)) \ge \alpha(m,R)=P(E)\). Then by Theorem~\ref{thm: steiner inequality} and Lemma~\ref{lemma: density points and vertical sections} 
+    \[
+        E_{v,z} \coloneq \{ s \in \R \colon z + sv \in E\}
+    \]
+    is an interval for every \(z \in v^\perp\). 
+
+    We claim that \(E\) is convex. Indeed, let \(x,y \in E\) be two distinct points, and set \(v = (y-x)/|y-x|\). Then if \(z \in v^\perp\) is the projection of \(x\) (and \(y\)) in \(v^\perp\), 
+    \[
+        (1-\lambda)x + \lambda y = z + [(1-\lambda)x\cdot v + \lambda x \cdot v] v \in E
+    \]
+    as \([x\cdot v, y\cdot v] \subset E_{v,z}\).
+
+    By Theorem~\ref{thm: steiner inequality}, for every unit vector \(v \in \R^n\) there exists \(c_v \in \R\) such that \(E= S_v(E) + c_v v\). Consider
+    \[
+        E' \coloneq E - (c_{e_1}e_1 + \cdots c_{e_n}e_n).
+    \]
+    Since \(E'\) is still convex and for every unit vector \(v \in \R^n\) we still have \(P(E')=P(S_v(E'))\), there are constants \(c_v' \in \R\) such that \(E' = S_v(E')+c_v'v\). But by construction, 
+    \[
+        S_{e_i}(E') = S_{e_i}(E) - \sum_{j \ne i} c_j e_j = E-c_ie_i - \sum_{j \ne i} c_j e_j,
+    \]
+    so \(c_i'=0\) for every \(i=1,\dots,n\). Hence, \(E\) is invariant under the reflections with respect to the coordinates planes, and therefore invariant under the map \(x\mapsto -x\). This implies that
+    \[
+        S_v(E)+c'_vv = -S_v(E) - c'_vv = S_v(E) + c'_v(-v)
+    \]
+    and since \(S_v(E)=S_{v'}(E)\), \(c_v'=c_{-v}'\). But since clearly \(c_{-v}'=-c_v\), we have \(c_v'=0\) for every unit vector \(v \in \R^n\). Thus \(E'\) is a convex set invariant under any reflection with respect to planes through the origin, that is, \(E'\) is a ball centered at the origin.
+\end{proof}
+
+We can now prove the isoperimetric inequality.
+\begin{proof}[Proof of Theorem~\ref{thm: isoperimetric inequality}]
+    Suppose that \(E\) is bounded. Then taking \(R>0\) big enough, by Lemma~\ref{lemma: constrained isoperimetric inequality}, 
+    \[
+        P(E) \ge n \omega_n^{1/n} |E|^{\frac{n-1}{n}},
+    \]
+    and the equality holds if and only if \(E\) is equivalent to a ball.
+
+    If \(E\) is not bounded, by Theorem~\ref{thm: polyhedral approximation} we can approximate it with bounded sets, that is, there are bounded sets \(E_h\subset \R^n\) with \(E_h \to E\) and \(P(E_h) \to P(E)\). Passing to the limit, the inequality is preserved. 
+    
+    Now assume that \(E=E^{(1)}\) is unbounded and \(|E|<\infty\). Assume by contradiction that 
+    \[
+        P(E) = n \omega_n^{1/n} |E|^{\frac{n-1}{n}}.
+    \]
+    By \eqref{thm: steiner inequality}, \(P(E)=P(S_v(E))\) for every unit vector \(v \in \R^n\). Up to a translation, arguing exactly as in Lemma~\ref{lemma: constrained isoperimetric inequality} we have that \(E\) is a convex set which is invariant under any reflection with respect to planes through the origin. Then either \(E=\R^n\) or \(E\) is a ball, a contradiction in both cases since \(|E|<\infty\) and \(E\) is unbounded.
+\end{proof}
+
+

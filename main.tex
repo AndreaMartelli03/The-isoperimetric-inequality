@@ -1,0 +1,131 @@
+\documentclass{article}[12pt]
+
+%----- Math ---------------------------------------------
+\usepackage{amsmath}   
+\usepackage{mathrsfs}      
+\usepackage{mathtools}       
+\usepackage{amssymb}   
+\usepackage{amsthm}   
+\usepackage{esint}     
+\usepackage{resmes} 
+\usepackage{stackengine}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{dsfont}
+
+
+
+%----- Design ------------------------------------------- 
+\usepackage{lastpage}                              
+\usepackage{enumitem}
+\usepackage{multirow}
+
+
+%----- Intestazioni ---------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % Clear all headers and footers
+\fancyhead[R]{\nouppercase{\leftmark}} % Header right on all pages
+\fancyfoot[C]{\thepage} % Footer center, page number
+\setlength{\headheight}{14.5pt}
+
+% Pacchetto titlesec per personalizzare i titoli dei capitoli
+\usepackage{titlesec}
+
+
+%----- Pacchetti Disegno --------------------------------
+\usepackage{tikz}
+\makeatother 
+\usetikzlibrary{3d,perspective}
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows,calc,patterns}
+\usepackage{tikz-cd}
+\usepackage{graphicx}
+\usepackage{thmtools}
+\usepackage{xcolor}
+\usepackage[all]{xy}        
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{hobby}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+
+%----- Symbols -----------------------------------------
+\input{symbols}
+
+%----- Hyperref ------------------------------------------
+\usepackage{nameref}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black, % Color for normal internal links
+	filecolor=black, % Color for file links
+	urlcolor=blue, % Color for external links
+	citecolor=blue % Color for citations
+}
+\usepackage{cleveref} 
+
+
+% -----Ambienti matematici-------------------------------
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{claim}{Claim}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{axiom}{Axiom}
+
+\theoremstyle{remark}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exercise}{Exercise}
+
+
+%------BIBLIOGRAFIA-----------
+\usepackage[style=alphabetic, backend=biber]{biblatex}
+% Definizione di un nuovo driver per nascondere URL e DOI
+\AtEveryBibitem{
+ 	\clearfield{url} % Nasconde l'URL
+ 	\clearfield{doi} % Nasconde il DOI
+ 	\clearfield{isbn} % Nasconde ISBN
+ 	\clearfield{issn} % Nasconde ISSN
+ 	\clearfield{note} % Nasconde le note
+}
+\addbibresource{biblio.bib}
+
+\title{The isoperimetric inequality}
+\author{Andrea Martelli}
+\date{Trento, November 2025}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    These notes are the content of my seminar for the final exam of the course \emph{Advanced Topics in Analysis}, taught by Prof. Gian Paolo Leonardi during the Fall semester of 2025 at University of Trento.
+\end{abstract}
+%\tableofcontents
+
+\section{Introduction}
+\input{Intro}
+
+\section{Polyhedral approximation}
+\input{Polyhedral Approximation}
+
+\section{Steiner inequality}
+\input{Steiner inequality}
+
+\section{The isoperimetric inequality}
+\input{Isoperimetric inequality}
+
+\section{An alternative approach}
+\input{CMC approach}
+
+\printbibliography
+\addcontentsline{toc}{section}{References}
+\end{document}
+

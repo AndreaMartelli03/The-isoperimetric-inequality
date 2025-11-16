@@ -1,0 +1,160 @@
+Adopting the point of view of differential geometry, we could have used a completely different approach. Indeed, fix \(m>0\) and let
+\begin{equation}\label{eq: isoperimetric problem}
+    \alpha(m) \coloneq \inf\left\{ \Haus^{n-1}(\Sigma) \left| \ \begin{aligned}
+        &\Sigma = \de \Omega \text{ smooth, connected,}\\
+        &\text{compact hypersurface}, |\Omega|=m
+    \end{aligned}
+    \right.\right\}.
+\end{equation}
+Suppose that \(\Sigma= \de \Omega\) is a minimizer, that is, \(\Haus^{n-1}(\Sigma) = \alpha(m)\) and \(|\Omega|=m\). Let \(\nu \colon \Sigma \to \Sp^{n-1}\) be the outer unit normal of \(\Sigma\), \(A\) its second fundamental form, defined\footnote{
+Note that, identifying the tangent spaces as subspaces of \(\R^n\) in the usual way, the scalar product makes sense. Actually, \(T_{\nu(x)} \Sp^{n-1}=T_x\Sigma \subset \R^n\) by definition of unit normal.
+} by 
+\[
+    A(X,Y)=\dif \nu_x [X] \cdot Y
+\]
+for every tangent vectors \(X,Y \in T_x \Sigma\), and \(H = \tr(A)\) its mean curvature. By the inverse function theorem and by the compactness of \(\Sigma\), there is \(\eps>0\) such that 
+\[
+    \phi(t,x) = x + t\nu(x),
+\]
+is a diffeomorphism on \((-\eps,\eps) \times \Sigma\). Let \(u\colon \Sigma \to \R\) be a smooth function with zero average, i.e., \(\int_\Sigma u \dif \Haus^{n-1}=0\), and define
+\[
+    F(t,x) = \phi(tu(x),x)
+\]
+for every \(x \in \Sigma\) and \(t \in \R\) small enough. Denote 
+\[
+    \Sigma_t = \{F(t,x) \colon x \in \Sigma\}.
+\]
+Then, \(\Sigma_t = \de \Omega_t\) is the boundary of a bounded set \(\Omega_t\). For every \(x \in \Sigma\), consider the geodesic
+\[
+    \gamma_x(s) = \phi(s,x),
+\]
+which has constant velocity \(|\dot \gamma_x|=u(x)\). Then, by the coarea formula,
+\[
+\begin{aligned}
+    |\Omega_t| &= |\Omega| + |\{ \phi(s,x) \colon 0<s<tu(x)\}| - |\{ \phi(s,x) \colon tu(x)<s<0\}| \\
+    &= m+ \int_{\{u>0\}} \int_0^t |\dot \gamma_x| \dif t  \dif \Haus^{n-1}(x) - \int_{\{u<0\}} \int_0^t |\dot \gamma_x| \dif t \dif \Haus^{n-1}(x)\\
+    &= m + t\int_\Sigma u \ \dif \Haus^{n-1} = m,
+\end{aligned}
+\]
+hence \(\Sigma_t\) is a competitor in \eqref{eq: isoperimetric problem} for every \(t\). By the minimality of \(\Sigma\),
+\[
+    \Haus^{n-1}(\Sigma_t) \ge \Haus^{n-1}(\Sigma),
+\]
+so the function \(t \mapsto \Haus^{n-1}(\Sigma_t)\) has a minimum at \(t=0\). The first variation formula implies that
+\[
+   0 = \left.\frac{\dif}{\dif t}\right|_{t=0} \Haus^{n-1}(\Sigma_t) = \int_\Sigma Hu \ \dif \Haus^{n-1}.
+\]
+Since this hold for every \(u:\Sigma \to \R\) with zero average, \(H\) is constant, and we say that \(\Sigma\) is \emph{CMC}.
+
+Taking the second derivative with respect to \(t\), the second variation formula implies that
+\begin{equation}\label{eq: stability inequality}
+\begin{aligned}
+    0 &\le \int_\Sigma |\nabla_\Sigma u|^2 - (|A|^2-H^2) u^2  \ \dif \Haus^{n-1} \\
+    &= \int_\Sigma |\nabla_\Sigma u|^2 - |A|^2 u^2 \ \dif \Haus^{n-1}= - \int_\Sigma u L_\Sigma u \ \dif \Haus^{n-1}
+\end{aligned}
+\end{equation}
+for every smooth function \(u\) with zero average, where 
+\[
+    L_\Sigma u = \Delta_\Sigma u + |A|^2u
+\]
+is the \emph{Jacobi operator} of \(\Sigma\). Any hypersurface \(\Sigma\) that satisfies \eqref{eq: stability inequality} is called \emph{CMC-stable}. 
+
+This approach can give another proof of the isoperimetric inequality. In particular, it holds the following stronger result.
+
+\begin{thm}[Barbosa-do Carmo, {\cite{BarbosaDoCarmo}}]\label{thm: Barbosa-do Carmo}
+    Let \(\Sigma\) be a compact, connected, orientable, CMC hypersurface in \(\R^n\). Then \(\Sigma\) is CMC-stable if and only if \(\Sigma\) is a round sphere.
+\end{thm}
+
+\begin{proof}
+Let \(\Sigma\) be a sphere, and assume without loss of generality that \(\Sigma = \Sp^{n-1}\) has radius \(1\) and is centered at the origin. Since \(\nu(x)=x\), we have \(\dif \nu = \id\), hence \(H = (n-1)\) and \(|A|^2 = (n-1)\). Thus, \(\Sp^{n-1}\) is CMC. The spectrum of the spherical Laplacian \(\Delta_{\Sp^{n-1}}\) is well known thanks to the formula of the standard Laplacian of \(\R^n\) in spherical coordinates
+\[
+    \Delta_{\R^n} = \frac{\de^2}{\de r^2} + \frac{n-1}{r} \frac{\de}{\de r} + \frac{1}{r^2}\Delta_{\Sp^{n-1}},
+\]
+that allows us to identify the homogeneous harmonic functions of \(\R^n\) with the eigenfunctions of \(\Delta_{\Sp^{n-1}}\). In particular, the first nonzero eigenvalue of \(\Delta_{\Sp^{n-1}}\) is
+\[
+\begin{aligned}
+    \lambda_1 &= \inf\left\{ \frac{\int_{\Sp^{n-1}} |\nabla_{\Sp^{n-1}} u|^2  \dif \Haus^{n-1}}{\int_{\Sp^{n-1}} u^2 \dif \Haus^{n-1}} \colon u \in C^{\infty}(\Sp^{n-1}) \setminus \{0\},\ \int_{\Sp^2} u \ \dif \Haus^{n-1}=0\right\} \\
+    &=(n-1).
+\end{aligned}
+\]
+Thus, for every smooth function \(u \colon \Sp^{n-1} \to \R\) with zero average
+\[
+    \int_{\Sp^{n-1}} |\nabla_{\Sp^{n-1}}u|^2-(n-1)u^2 \ \dif \Haus^{n-1} \ge 0,
+\]
+that is, \(\Sp^{n-1}\) is CMC-stable.
+
+Now assume that \(\Sigma\) is CMC-stable, and let us prove that it must be a sphere.
+Consider the function \(f \colon \Sigma \to \R\) defined by
+\[
+    f(x)= x \cdot \nu(x) 
+\]
+and the radial vector field \(X(x)=x\), for every \(x \in \Sigma\). Even if \(X\) is not tangent, we can define its divergence on \(\Sigma\) as
+\[
+    \dive_\Sigma X = \sum_{i=1}^{n-1} (D_{\tau_i} X) \cdot \tau_i 
+\]
+locally for any orthonormal frame \(\tau_1,\dots,\tau_n\) of \(\Sigma\). Since \(X\) is the restriction of the identity,
+\[
+    \dive_\Sigma X = \sum_{i=1}^{n-1} (D_{\tau_i} X) \cdot \tau_i = \sum_{i=1}^{n-1} \tau_i \cdot \tau_i = n-1.
+\]
+By the generalized divergence theorem for submanifolds,
+\[  
+\begin{aligned}
+    \int_\Sigma \dive_\Sigma X \ \dif \Haus^{n-1} &= \int_{\de\Sigma} X \cdot \nu_{\de \Sigma} \ \dif \Haus^{n-2} + \int_\Sigma HX\cdot \nu \ \dif \Haus^{n-1}\\
+    &= H\int_\Sigma f(x) \ \dif \Haus^{n-1}(x)
+\end{aligned}
+\]
+because \(\de \Sigma = \varnothing\). Therefore, \(u = Hf-n+1\) has zero average, and can be tested in \eqref{eq: stability inequality}.
+
+With a clever choice of frame, one can compute that
+\begin{equation}\label{eq: Laplacian of f}
+    \Delta_\Sigma f = H-|A|^2f.
+\end{equation}
+Therefore,
+\[
+    L_\Sigma u = H^2-|A|^2Hf + |A|^2(Hf-n+1) = H^2-(n-1)|A|^2,
+\]
+and \eqref{eq: stability inequality} becomes
+\[
+\begin{aligned}
+    0 &\le \int_\Sigma ((n-1)|A|^2-H^2) (Hf-n+1) \ \dif \Haus^{n-1}\\
+    &= (n-1)\int_\Sigma |A|^2(Hf-n+1) \ \dif \Haus^{n-1}.
+\end{aligned}
+\]
+By the divergence theorem and by \eqref{eq: Laplacian of f}
+\[
+    0 = \int_\Sigma \Delta_\Sigma f \ \dif \Haus^{n-1} = H\Haus^{n-1}(\Sigma)- \int_{\Sigma} |A|^2 f \ \dif \Haus^{n-1},
+\]
+so 
+\[
+    0 \le \int_\Sigma |A|^2(Hf-n+1) \ \dif \Haus^{n-1} = \int_\Sigma H^2-(n-1)|A|^2 \dif \Haus^{n-1},
+\]
+that is
+\begin{equation}\label{eq: (n-1)int |A|^2<int H^2}
+    (n-1)\int_\Sigma |A|^2\dif \Haus^{n-1} \le \int_\Sigma H^2 \dif \Haus^{n-1}.
+\end{equation}
+However, if \(\lambda_1, \dots, \lambda_{n-1}\) are the eigenvalues of \(A\), by the \(AM\le QM\) inequality we have that
+\[
+    H^2 = \left(\sum_{i=1}^{n-1}\lambda_i\right)^2 \le (n-1)\sum_{i=1}^{n-1}\lambda_i^2 = (n-1) |A|^2,
+\]
+with equality if and only if \(\lambda_1= \cdots =\lambda_{n-1}\). But by \eqref{eq: (n-1)int |A|^2<int H^2}, it must be \(H^2=(n-1)|A|^2\), that is,
+\[
+    \dif \nu = \frac{H}{n-1} \id 
+\]
+(in this case, \(\Sigma\) is called \emph{totally umbilical}). This implies that \(\Sigma\) is a sphere. Indeed, consider the map \(F \colon \Sigma \to \R^n\) given by
+\[
+   F(x) = \frac{H}{n-1}x-\nu(x) 
+\]
+for every \(x \in \Sigma\). Its differential vanishes, so, since \(\Sigma\) is connected, it's constant: there exists \(p \in \R^n\) such that
+\[
+    F(x)=\frac{H}{n-1}p
+\]
+for every \(x \in \Sigma\). But then
+\[
+    \nu(x) = \frac{H}{n-1}(x-p),
+\]
+and therefore
+\[
+    |x-p|= \frac{n-1}{|H|},
+\]
+for every \(x \in \Sigma\), that is, \(\Sigma\) is the sphere of radius \((n-1)/|H|\) centered at \(p\).
+\end{proof}
