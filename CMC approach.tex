@@ -6,6 +6,7 @@ Adopting the point of view of differential geometry, we could have used a comple
     \end{aligned}
     \right.\right\}.
 \end{equation}
+
 Suppose that \(\Sigma= \de \Omega\) is a minimizer, that is, \(\Haus^{n-1}(\Sigma) = \alpha(m)\) and \(|\Omega|=m\). Let \(\nu \colon \Sigma \to \Sp^{n-1}\) be the outer unit normal of \(\Sigma\), \(A\) its second fundamental form, defined\footnote{
 Note that, identifying the tangent spaces as subspaces of \(\R^n\) in the usual way, the scalar product makes sense. Actually, \(T_{\nu(x)} \Sp^{n-1}=T_x\Sigma \subset \R^n\) by definition of unit normal.
 } by 
@@ -64,6 +65,17 @@ This approach can give another proof of the isoperimetric inequality. In particu
 \begin{thm}[Barbosa-do Carmo, {\cite{BarbosaDoCarmo}}]\label{thm: Barbosa-do Carmo}
     Let \(\Sigma\) be a compact, connected, orientable, CMC hypersurface in \(\R^n\). Then \(\Sigma\) is CMC-stable if and only if \(\Sigma\) is a round sphere.
 \end{thm}
+
+\begin{rmk}
+    \emph{A posteriori}, assuming that \(\Sigma\) is connected in the isoperimetric problem \eqref{eq: isoperimetric problem} is not restrictive. In fact assume that \(\Sigma = \de \Omega\) is not connected. Without loss of generality, we can assume that \(\Omega\) is connected (otherwise consider separately each connected component). Then each connected component is CMC-stable, hence by Theorem~\ref{thm: Barbosa-do Carmo} they are spheres. By Jordan's separation theorem, each sphere is also a boundary of a ball, so \(\Omega\) must be obtained by removing some disjoint balls \(B_1,\dots, B_k\) (of radii \(r_1,\dots,r_k\)) from an initial big ball \(B_0\) (of radius \(r_0\)). Hence, 
+    \[
+    \begin{aligned}
+        \Haus^{n-1}(\Sigma) &= \sum_{j=0}^k \Haus^{n-1}(\de B_j) = n \omega_n\sum_{j=0}^k r_j^{n-1} \\
+        &\ge n\omega_n r_0^n=n\omega_n^{1/n}|B_0|^{\frac{n-1}{n}}\\
+        &\ge n\omega_n^{1/n}|\Omega|^{\frac{n-1}{n}}.
+    \end{aligned}
+    \]
+\end{rmk}
 
 \begin{proof}
 Let \(\Sigma\) be a sphere, and assume without loss of generality that \(\Sigma = \Sp^{n-1}\) has radius \(1\) and is centered at the origin. Since \(\nu(x)=x\), we have \(\dif \nu = \id\), hence \(H = (n-1)\) and \(|A|^2 = (n-1)\). Thus, \(\Sp^{n-1}\) is CMC. The spectrum of the spherical Laplacian \(\Delta_{\Sp^{n-1}}\) is well known thanks to the formula of the standard Laplacian of \(\R^n\) in spherical coordinates

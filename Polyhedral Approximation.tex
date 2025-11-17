@@ -67,14 +67,14 @@ In the proof, we are going to use the following formula: for every measurable se
 \begin{equation}\label{eq: L^1 norm as area}
     \int_E|u-v| \dif x = \int_\R \Leb^n(E \cap \{u>t\}\triangle \{v>t\}) \dif t,
 \end{equation}
-where \(A\triangle B = (A\setminus B) \cup (B \setminus A)\) is the symmetric difference. This is the usual interpretation of the left hand side as the area between the graph of \(u\) and the graph of \(v\) over \(E\). Indeed, consider separately \(E_+=E \cap \{u>v\}\) and \(E_-=E \cap \{u<v\}\). By Fubini's theorem,
+where \(A\triangle B = (A\setminus B) \cup (B \setminus A)\) is the symmetric difference. This is follows from the usual interpretation of \(\int_E |u-v|\) as the area between the graph of \(u\) and the graph of \(v\) over \(E\). Indeed, consider separately \(E^+=E \cap \{u>v\}\) and \(E^-=E \cap \{u<v\}\). By Fubini's theorem,
 \begin{align*}
-    \int_{E^+} |u-v| \dif x &= \int_{E_+} \Leb^1((v(x),u(x))) \dif x \\
+    \int_{E^+} |u-v| \dif x &= \int_{E^+} \Leb^1((v(x),u(x))) \dif x \\
     &= \Leb^{n+1}(\{(x,t) \in E\times\R \colon v(x)<t<u(x)\}) \\
     &= \int_\R \Leb^n(\{x \in E \colon v(x)<t<u(x)\}) \dif t \\
     &= \int_\R \Leb^n(E \cap \{u>t\}\setminus \{v>t\}) \dif t
 \end{align*}
-and similarly for \(E_-\).
+and similarly for \(E^-\).
 \end{rmk}
 
 We are going to use the following lemma, which is independent from all the results given in these notes.
