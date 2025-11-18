@@ -67,14 +67,19 @@ This approach can give another proof of the isoperimetric inequality. In particu
 \end{thm}
 
 \begin{rmk}
-    \emph{A posteriori}, assuming that \(\Sigma\) is connected in the isoperimetric problem \eqref{eq: isoperimetric problem} is not restrictive. In fact assume that \(\Sigma = \de \Omega\) is not connected. Without loss of generality, we can assume that \(\Omega\) is connected (otherwise consider separately each connected component). Then each connected component is CMC-stable, hence by Theorem~\ref{thm: Barbosa-do Carmo} they are spheres. By Jordan's separation theorem, each sphere is also a boundary of a ball, so \(\Omega\) must be obtained by removing some disjoint balls \(B_1,\dots, B_k\) (of radii \(r_1,\dots,r_k\)) from an initial big ball \(B_0\) (of radius \(r_0\)). Hence, 
+    \emph{A posteriori}, assuming that \(\Sigma\) is connected in the isoperimetric problem \eqref{eq: isoperimetric problem} is not restrictive. In fact assume that \(\Sigma = \de \Omega\) is not connected. Let \(\Omega_1, \dots, \Omega_k\) be the connected components of \(\Omega\), and \(\Sigma_0^j,\dots,\Sigma_{N(j)}^j\) the connected components of \(\Sigma\) such that \(\de \Omega_j = \bigcup_i \Sigma_i^j\). Since each \(\Sigma_i^j\) is CMC-stable, by Theorem~\ref{thm: Barbosa-do Carmo} it's a round sphere, so \(\Sigma_i^j\) a boundary of a ball \(B_i^j\). Hence, every \(\Omega_j\) must be obtained by removing some disjoint balls \(B_1^j,\dots, B_{N(j)}^i\) from an initial big ball \(B_0^j\) of radius \(R_j\). Denote \(\Omega^* = \bigcup_j B_0^j \supset \Omega\) and \(\Sigma^* = \de \Omega^* \subset \Sigma\). Then it's easy to see (for example, by induction over \(k\)) that
     \[
     \begin{aligned}
-        \Haus^{n-1}(\Sigma) &= \sum_{j=0}^k \Haus^{n-1}(\de B_j) = n \omega_n\sum_{j=0}^k r_j^{n-1} \\
-        &\ge n\omega_n r_0^n=n\omega_n^{1/n}|B_0|^{\frac{n-1}{n}}\\
-        &\ge n\omega_n^{1/n}|\Omega|^{\frac{n-1}{n}}.
+        \Haus^{n-1}(\Sigma^*)^n &= \left(n \omega_n \sum_{j=1}^k R_j^{n-1}\right)^n = n^n \omega_n^n \left( \sum_{j=1}^k R_j^{n-1}\right)^n \\
+        & \ge n^n \omega_n^n \left(\sum_{j=1}^k R_j^n\right)^{n-1} = n^n \omega_n^{n-1} \left( \omega_n \sum_{j=1}^k R_j^n\right)^{n-1}\\
+        &= n^n \omega_n |\Omega^*|^{n-1}
     \end{aligned}
     \]
+    with strict inequality whenever \(k>1\). Then observe that
+    \[
+        \Haus^{n-1}(\Sigma) \ge \Haus^{n-1}(\Sigma^*) \ge n \omega_n^{1/n}|\Omega^*|^{\frac{n-1}{n}} = n \omega_n^{1/n}|\Omega^*|^{\frac{n-1}{n}}
+    \]
+    with strict inequality whenever \(\Sigma \ne \Sigma^*\). Since either \(k>1\) or \(\Sigma \ne \Sigma^*\), one of the inequalities is strict.
 \end{rmk}
 
 \begin{proof}
