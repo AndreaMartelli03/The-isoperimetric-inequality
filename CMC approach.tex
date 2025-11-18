@@ -66,21 +66,6 @@ This approach can give another proof of the isoperimetric inequality. In particu
     Let \(\Sigma\) be a compact, connected, orientable, CMC hypersurface in \(\R^n\). Then \(\Sigma\) is CMC-stable if and only if \(\Sigma\) is a round sphere.
 \end{thm}
 
-\begin{rmk}
-    \emph{A posteriori}, assuming that \(\Sigma\) is connected in the isoperimetric problem \eqref{eq: isoperimetric problem} is not restrictive. In fact assume that \(\Sigma = \de \Omega\) is not connected. Let \(\Omega_1, \dots, \Omega_k\) be the connected components of \(\Omega\), and \(\Sigma_0^j,\dots,\Sigma_{N(j)}^j\) the connected components of \(\Sigma\) such that \(\de \Omega_j = \bigcup_i \Sigma_i^j\). Since each \(\Sigma_i^j\) is CMC-stable, by Theorem~\ref{thm: Barbosa-do Carmo} it's a round sphere, so \(\Sigma_i^j\) a boundary of a ball \(B_i^j\). Hence, every \(\Omega_j\) must be obtained by removing some disjoint balls \(B_1^j,\dots, B_{N(j)}^i\) from an initial big ball \(B_0^j\) of radius \(R_j\). Denote \(\Omega^* = \bigcup_j B_0^j \supset \Omega\) and \(\Sigma^* = \de \Omega^* \subset \Sigma\). Then it's easy to see (for example, by induction over \(k\)) that
-    \[
-    \begin{aligned}
-        \Haus^{n-1}(\Sigma^*)^n &= \left(n \omega_n \sum_{j=1}^k R_j^{n-1}\right)^n = n^n \omega_n^n \left( \sum_{j=1}^k R_j^{n-1}\right)^n \\
-        & \ge n^n \omega_n^n \left(\sum_{j=1}^k R_j^n\right)^{n-1} = n^n \omega_n^{n-1} \left( \omega_n \sum_{j=1}^k R_j^n\right)^{n-1}\\
-        &= n^n \omega_n |\Omega^*|^{n-1}
-    \end{aligned}
-    \]
-    with strict inequality whenever \(k>1\), which is indeed the case if \(\Sigma=\Sigma^*\). If instead \(\Sigma \ne \Sigma^*\), then observe that
-    \[
-        \Haus^{n-1}(\Sigma) > \Haus^{n-1}(\Sigma^*) \ge n \omega_n^{1/n}|\Omega^*|^{\frac{n-1}{n}} > n \omega_n^{1/n}|\Omega|^{\frac{n-1}{n}}.
-    \]
-\end{rmk}
-
 \begin{proof}
 Let \(\Sigma\) be a sphere, and assume without loss of generality that \(\Sigma = \Sp^{n-1}\) has radius \(1\) and is centered at the origin. Since \(\nu(x)=x\), we have \(\dif \nu = \id\), hence \(H = (n-1)\) and \(|A|^2 = (n-1)\). Thus, \(\Sp^{n-1}\) is CMC. The spectrum of the spherical Laplacian \(\Delta_{\Sp^{n-1}}\) is well known thanks to the formula of the standard Laplacian of \(\R^n\) in spherical coordinates
 \[
@@ -174,3 +159,18 @@ and therefore
 \]
 for every \(x \in \Sigma\), that is, \(\Sigma\) is the sphere of radius \((n-1)/|H|\) centered at \(p\).
 \end{proof}
+
+\begin{rmk}
+    \emph{A posteriori}, assuming that \(\Sigma\) is connected in the isoperimetric problem \eqref{eq: isoperimetric problem} is not restrictive. In fact assume that \(\Sigma = \de \Omega\) is not connected. Let \(\Omega_1, \dots, \Omega_k\) be the connected components of \(\Omega\), and \(\Sigma_0^j,\dots,\Sigma_{N(j)}^j\) the connected components of \(\Sigma\) such that \(\de \Omega_j = \bigcup_i \Sigma_i^j\). Since each \(\Sigma_i^j\) is CMC-stable, by Theorem~\ref{thm: Barbosa-do Carmo} it's a round sphere, so \(\Sigma_i^j\) a boundary of a ball \(B_i^j\). Hence, every \(\Omega_j\) must be obtained by removing some disjoint balls \(B_1^j,\dots, B_{N(j)}^i\) from an initial big ball \(B_0^j\) of radius \(R_j\). Denote \(\Omega^* = \bigcup_j B_0^j \supset \Omega\) and \(\Sigma^* = \de \Omega^* \subset \Sigma\). Then it's easy to see (for example, by induction over \(k\)) that
+    \[
+    \begin{aligned}
+        \Haus^{n-1}(\Sigma^*)^n &= \left(n \omega_n \sum_{j=1}^k R_j^{n-1}\right)^n = n^n \omega_n^n \left( \sum_{j=1}^k R_j^{n-1}\right)^n \\
+        & \ge n^n \omega_n^n \left(\sum_{j=1}^k R_j^n\right)^{n-1} = n^n \omega_n^{n-1} \left( \omega_n \sum_{j=1}^k R_j^n\right)^{n-1}\\
+        &= n^n \omega_n |\Omega^*|^{n-1}
+    \end{aligned}
+    \]
+    with strict inequality whenever \(k>1\), which is indeed the case if \(\Sigma=\Sigma^*\). If instead \(\Sigma \ne \Sigma^*\), then observe that
+    \[
+        \Haus^{n-1}(\Sigma) > \Haus^{n-1}(\Sigma^*) \ge n \omega_n^{1/n}|\Omega^*|^{\frac{n-1}{n}} > n \omega_n^{1/n}|\Omega|^{\frac{n-1}{n}}.
+    \]
+\end{rmk}
