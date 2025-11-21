@@ -4,7 +4,7 @@ Let us recall the definition of Steiner symmetrization. Write \(\R^n = \R^{n-1}\
 \]
 The \emph{Steiner symmetrization of \(E\) with respect to the direction \(e_n\)} is the set
 \[
-    S_{e_n}(E) \coloneq \left\{ (z,t)\in \R^{n-1}\times \R \colon |t| \le \frac{1}{2}\Leb^1(E_z)\right\}.
+    S_{e_n}(E) \coloneq \left\{ (z,t)\in \R^{n-1}\times \R \colon |t| < \frac{1}{2}\Leb^1(E_z)\right\}.
 \]
 By Fubini's theorem, \(|S_{e_n}(E)|=|E|\). It is also quite easy to prove that
 \[
@@ -83,6 +83,56 @@ Since \(T\) is an isometry, \(|S_v(E)|=|E|\) and \(\diam(S_v(E)) \le \diam(E)\).
         E &= \bigcup_{h=1}^M \left\{(z,t) \in G_h \times \R \colon t \in \bigcup_{k=1}^{N(h)}(v_h^k(z), u_h^k(z))\right\}.
     \end{aligned}
     \end{equation*}
+
+    \begin{figure}[ht]
+		\centering
+		\begin{tikzpicture}
+		%\draw[help lines] (-3,-3) grid (5,4);
+        \draw [->](-4,-3) -- (5,-3);
+        \node at (5.2,-2.7){\(\R^{n-1}\)};
+        \draw [->](-4,-3.2) -- (-4,4.2);
+        \node at (-3.7,4.2){\(\R\)};
+
+        \fill[blue, opacity=0.2] (-3,0) -- (2,4)--(1,2)--(4,1)--(2,-2)--(-3,0);
+        \draw[thick] (-3,0) -- (2,4)--(1,2)--(4,1)--(2,-2)--(-3,0);
+        \draw[thick, fill=white] (-1,0)--(1,1)--(2,0)--(-1,0);
+        \draw[dashed] (-3,-3)--(-3,4);
+        \draw[dashed] (-1,-3)--(-1,4);
+        \draw[dashed] (1,-3)--(1,4);
+        \draw[dashed] (2,-3)--(2,4);
+        \draw[dashed] (4,-3)--(4,4);
+        
+        \draw[thick, blue] (-3,-3)--(4,-3);
+        \node[blue] at (-3,-3){\((\)};
+        \node[blue] at (4,-3){\()\)};
+        \node[blue] at (-2,-3.5){\(G_1\)};
+        \node[blue] at (0,-3.5){\(G_2\)};
+        \node[blue] at (1.5,-3.5){\(G_3\)};
+        \node[blue] at (3,-3.5){\(G_4\)};
+
+        \node at (-2,-1){\(v_1^1\)};
+        \node at (-2,1.5){\(u_1^1\)};
+
+        \node at (0,-1.5){\(v_2^1\)};
+        \node at (0,-0.5){\(u_2^1\)};
+        \node at (0,1){\(v_2^2\)};
+        \node at (0,3){\(u_2^2\)};
+    
+        \node at (1.5,-2){\(v_3^1\)};
+        \node at (1.5,-0.5){\(u_3^1\)};
+        \node at (1.5,1){\(v_3^2\)};
+        \node at (1.5,2.2){\(u_3^2\)};
+        \node at (1.75,3){\(v_3^3\)};
+        \node at (1.25,3.8){\(u_3^3\)};
+
+        \node at (3,-1.3){\(v_4^1\)};
+        \node at (3,1.8){\(u_4^1\)};
+        
+		\end{tikzpicture}
+        \caption{Notation in step 1 of the proof of Theorem~\ref{thm: steiner inequality}.}
+        \label{fig: polyhedral set}
+	\end{figure}
+    
     With this notation,
     \begin{equation}\label{eq: polyhedral perimeter}
     \begin{aligned}
@@ -285,7 +335,7 @@ the set of with density one points of \(E\). A standard application of Besicovit
         &\ge (1-\eps) 2^{n-1} r^{n-1}.
     \end{aligned}        
     \]
-    Now let \(z \in G_1 \cap G_2\). Since \(E_z\) is equivalent to an interval and \(\Leb^1(E_z \cap I_r(t_k))>0\) for \(k=1,2\), and since \eqref{eq: x_k density one}, we have
+    Now let \(z \in G_1 \cap G_2\). Since \(E_z\) is equivalent to an interval and \(\Leb^1(E_z \cap I_r(t_k))>0\) for \(k=1,2\), by \eqref{eq: x_k density one} we have
     \[
         \Leb^1(E_z \cap I_r(t_0))=2r.
     \]
