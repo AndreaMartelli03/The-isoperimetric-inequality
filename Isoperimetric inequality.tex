@@ -19,7 +19,7 @@
 
     We claim that \(E\) is convex. Indeed, let \(x,y \in E\) be two distinct points, and set \(v = (y-x)/|y-x|\). Then if \(z \in v^\perp\) is the projection of \(x\) (and \(y\)) in \(v^\perp\), 
     \[
-        (1-\lambda)x + \lambda y = z + [(1-\lambda)x\cdot v + \lambda x \cdot v] v \in E
+        (1-\lambda)x + \lambda y = z + [(1-\lambda)x\cdot v + \lambda x \cdot v] v \in E, \qquad \forall \lambda \in [0,1]
     \]
     as \([x\cdot v, y\cdot v] \subset E_{v,z}\).
 
@@ -29,13 +29,19 @@
     \]
     Since \(E'\) is still convex and for every unit vector \(v \in \R^n\) we still have \(P(E')=P(S_v(E'))\), there are constants \(c_v' \in \R\) such that \(E' = S_v(E')+c_v'v\). But by construction, 
     \[
-        S_{e_i}(E') = S_{e_i}(E) - \sum_{j \ne i} c_j e_j = E-c_ie_i - \sum_{j \ne i} c_j e_j,
+        S_{e_i}(E') = S_{e_i}(E) - \sum_{j \ne i} c_j e_j = E-c_ie_i - \sum_{j \ne i} c_j e_j = E',
     \]
-    so \(c_i'=0\) for every \(i=1,\dots,n\). Hence, \(E\) is invariant under the reflections with respect to the coordinates planes, and therefore invariant under the map \(x\mapsto -x\). This implies that
+    so \(c_i'=0\) for every \(i=1,\dots,n\). Hence, \(E'\) is invariant under the reflections with respect to the coordinates planes, and therefore invariant under the map \(x\mapsto -x\) (the composition of all those reflections). Since for every unit vector \(v\) we can write \(E'=S_v(E)+c_v'v\), we have
+    \begin{equation}\label{eq: gaining symmetry}
+        S_v(E)+c'_vv =  -S_v(E) - c'_vv = S_v(E) + c'_v(-v).
+    \end{equation}
+    Clearly, \(c_{-v}'=-c_v'\) for every unit vector \(v\). On the other hand, combining \eqref{eq: gaining symmetry} with the fact that \(S_v(E)=S_{v'}(E)\), we also have that \(c_v'=c_{-v}'\). Therefore, for every unit vector \(v \in \R^n\), it must be \(c_v'=0\), that is, \(S_v(E')=E'\).
+    
+    As a consequence, \(E'\) is invariant under reflections by hyperplanes through the origin. Since by composition the set of those reflections generates all rotations that fix the origin, \(E'\) is invariant under any rotation fixing the origin. As a consequence, all the sections 
     \[
-        S_v(E)+c'_vv = -S_v(E) - c'_vv = S_v(E) + c'_v(-v)
+        E_v' \coloneq  \{ s \in \R \colon sv \in E'\}, \qquad v\in \R^n, \ |v|=1,
     \]
-    and since \(S_v(E)=S_{v'}(E)\), \(c_v'=c_{-v}'\). But since clearly \(c_{-v}'=-c_v\), we have \(c_v'=0\) for every unit vector \(v \in \R^n\). Thus \(E'\) is a convex set invariant under any reflection with respect to planes through the origin, that is, \(E'\) is a ball centered at the origin.
+    must be equal, and since \(E'\) is bounded there exists \(r>0\) such that \(E_v'=(-r,r)\) for every unit vector \(v \in \R^n\). Hence, \(E'=B_r(0)\) and \(E=B_r(p)\), with \(p=(c_{e_1},\dots,c_{e_n})\).
 \end{proof}
 
 We can now prove the isoperimetric inequality.
@@ -52,7 +58,11 @@ We can now prove the isoperimetric inequality.
     \[
         P(E) = n \omega_n^{1/n} |E|^{\frac{n-1}{n}}.
     \]
-    By \eqref{thm: steiner inequality}, \(P(E)=P(S_v(E))\) for every unit vector \(v \in \R^n\). Up to a translation, arguing exactly as in Lemma~\ref{lemma: constrained isoperimetric inequality} we have that \(E\) is a convex set which is invariant under any reflection with respect to planes through the origin. Then either \(E=\R^n\) or \(E\) is a ball, a contradiction in both cases since \(|E|<\infty\) and \(E\) is unbounded.
+    By \eqref{thm: steiner inequality}, \(P(E)=P(S_v(E))\) for every unit vector \(v \in \R^n\). Up to a translation, arguing exactly as in Lemma~\ref{lemma: constrained isoperimetric inequality} we have that all the sections \(E\)
+    \[
+        E_v \coloneq  \{ s \in \R \colon sv \in E\}, \qquad v\in \R^n, \ |v|=1,
+    \]
+    are equal. Since \(E\) is unbounded, we have \(E_v=\R\) for every unit vector \(v \in \R^n\), but then \(E=\R^n\), a contradiction in because we assumed that \(|E|<\infty\).
 \end{proof}
 
 

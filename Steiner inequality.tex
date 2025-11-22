@@ -168,9 +168,9 @@ Since \(T\) is an isometry, \(|S_v(E)|=|E|\) and \(\diam(S_v(E)) \le \diam(E)\).
 
     By \eqref{eq: m(z)} and the convexity of the function \(z \mapsto \sqrt{1+|z|^2}\), for every \(h=1,\dots, M\)
     \begin{align*}
-        \sum_{k=1}^{N(h)} \sqrt{1+|\nabla v_h^k|^2} + \sqrt{1+|\nabla u_h^k|^2} &\ge 2\sum_{k=1}^{N(h)} \sqrt{ 1+ \left|\frac{\nabla u_h^k-\nabla_h^k}{2}\right|^2} \\
-        &= 2N(h)\sum_{k=1}^{N(h)} \frac{1}{N(h)} \sqrt{ 1+ \left|\frac{\nabla u_h^k-\nabla_h^k}{2}\right|^2}\\
-        &\ge 2N(h) \sqrt{ 1+ \left|\sum_{k=1}^{N(h)} \frac{1}{N(h)}\frac{\nabla u_h^k-\nabla_h^k}{2}\right|^2}\\
+        \sum_{k=1}^{N(h)} \sqrt{1+|\nabla v_h^k|^2} + \sqrt{1+|\nabla u_h^k|^2} &\ge 2\sum_{k=1}^{N(h)} \sqrt{ 1+ \left|\frac{\nabla u_h^k-\nabla v_h^k}{2}\right|^2} \\
+        &= 2N(h)\sum_{k=1}^{N(h)} \frac{1}{N(h)} \sqrt{ 1+ \left|\frac{\nabla u_h^k-\nabla v_h^k}{2}\right|^2}\\
+        &\ge 2N(h) \sqrt{ 1+ \left|\sum_{k=1}^{N(h)} \frac{1}{N(h)}\frac{\nabla u_h^k-\nabla v_h^k}{2}\right|^2}\\
         &= \sqrt{4N(h)^2+|\nabla m|^2}.
     \end{align*}
     Therefore, by \(\eqref{eq: polyhedral perimeter}\) and \(\eqref{eq: symmetrized polyhedral perimeter}\), 
