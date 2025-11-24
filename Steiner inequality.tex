@@ -1,31 +1,26 @@
-Let us recall the definition of Steiner symmetrization. Write \(\R^n = \R^{n-1}\times \R\) with coordinates \(x=(z,t)\), \(z \in \R^{n-1}\), \(t=x_n \in \R\). For every \(E \subset \R^n\) and \(z \in \R^{n-1}\), consider the \emph{vertical \(z\)-slice}
+Let us recall the definition of Steiner symmetrization. Write \(\R^n = \R^{n-1}\times \R\) with coordinates \(x=(z,t)\), \(z \in \R^{n-1}\), \(t=x_n \in \R\). Let \(E \subset \R^n\) and fix a unit vector \(v\in \R^n\). For every \(z \in \langle v \rangle^\perp= \R^{n-1}\), consider the \emph{\(v\)-vertical \(z\)-slice}
 \[
-    E_z \coloneq \{ t \in \R \colon (z,t) \in E\} \subset \R.
+    E_z^v \coloneq \{ t \in \R \colon z+tv \in E\} \subset \R.
 \]
-The \emph{Steiner symmetrization of \(E\) with respect to the direction \(e_n\)} is the set
+The \emph{Steiner symmetrization of \(E\) with respect to the direction \(v\)} is the set
 \[
-    S_{e_n}(E) \coloneq \left\{ (z,t)\in \R^{n-1}\times \R \colon |t| < \frac{1}{2}\Leb^1(E_z)\right\}.
+    S_v(E) \coloneq \left\{ z+tv\in \R^n= \langle v\rangle^\perp \oplus \langle v\rangle \colon |t| < \frac{1}{2}\Leb^1(E_z^v)\right\}.
 \]
-By Fubini's theorem, \(|S_{e_n}(E)|=|E|\). It is also quite easy to prove that
+By Fubini's theorem, \(|S_v(E)|=|E|\). It is also quite easy to prove that
 \[
-    \diam(S_{e_n}(E)) \le \diam(E).
+    \diam(S_v(E)) \le \diam(E).
 \]
-
-If \(v \in \R^n\) is a unit vector, the \emph{Steiner symmetrization of \(E\) with respect to the direction \(v\)} is obtained by choosing any orthogonal change of coordinate \(T \colon \R^n \to \R^n\) such that \(T(v)=e_n\) and letting
-\[
-    S_v(E) \coloneq T^{-1}(S_{e_n}(T(E))).
-\]
-Since \(T\) is an isometry, \(|S_v(E)|=|E|\) and \(\diam(S_v(E)) \le \diam(E)\).
+In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) with a suitable change of coordinates, that is, we take \(v = e_n\). 
 
 \begin{prop}[Slicing perimeter by lines]\label{prop: slicing}
-    Let \(E \subset \R^n\) be a Lebesgue measurable set with \(|E|<\infty\) and \(P(E)<\infty\). Then, 
+    Let \(E \subset \R^n\) be a Lebesgue measurable set with \(|E|<\infty\) and \(P(E)<\infty\), and fix a unit vector \(v \in \R^n\). Then, 
     \begin{equation*}
-        \int_{\R^{n-1}} P(E_z) \dif z \le P(E).
+        \int_{\R^{n-1}} P(E_z^v) \dif z \le P(E).
     \end{equation*}
-    and in particular the vertical \(z\)-slice \(E_z\) is a set of finite perimeter in \(\R\) for a.e. \(z \in \R^{n-1}\).
+    and in particular the \(v\)-vertical \(z\)-slice \(E_z^v\) is a set of finite perimeter in \(\R\) for a.e. \(z \in \R^{n-1}\).
 \end{prop}
 \begin{proof}
-    Fix a mollifier \(\rho \in C^\infty_c(B_1)\) and let \(u_\eps \coloneq \chi_E \star \rho_\eps\), so that
+    Write \(E_z=E_z^v\). Fix a mollifier \(\rho \in C^\infty_c(B_1)\) and let \(u_\eps \coloneq \chi_E \star \rho_\eps\), so that
     \(u_\eps \to \chi_E\) and 
     \begin{equation}\label{eq: P(E)=lim_eps int nabla u_eps}
         P(E) = \lim_{\eps \to 0} \int_{\R^n} |\nabla u_\eps|\dif x.
@@ -60,13 +55,13 @@ Since \(T\) is an isometry, \(|S_v(E)|=|E|\) and \(\diam(S_v(E)) \le \diam(E)\).
     \begin{equation*}
         P(S_v(E)) \le P(E),
     \end{equation*}
-    and the equality holds if and only the vertical \(z\)-slice \(E_z\) is an interval for a.e. \(z \in \R^{n-1}\). 
+    and the equality holds if and only the \(z\)-slice \(E_z^v\) is an interval for a.e. \(z \in \R^{n-1}\). 
 
-    In particular, if \(E\) is equivalent to a convex set, then the equality holds if and only if \(E\) is equivalent to \(S_v(E) + cv\) for some \(c \in \R\).
+    Moreover, if \(E\) is equivalent to a convex set, then the equality holds if and only if \(E\) is equivalent to \(S_v(E) + cv\) for some \(c \in \R\).
 \end{thm}
 
 \begin{proof}
-    Without loss of generality, assume that \(v=e_n\) and denote \(E^s \coloneq S_{e_n}(E)\). We divide the proof in three steps.
+    Without loss of generality, assume that \(v=e_n\) and denote \(E_z=E_z^v\), \(E^s \coloneq S_{e_n}(E)\). We divide the proof in three steps.
     
     \emph{Step 1}. Assume that \(E\) is a bounded set with polyhedral boundary \(\de E\), and that the outer unit normal to \(E\) (defined \(\Haus^{n-1}\)-a.e. on \(\de E\)) is never orthogonal to \(e_n\). In particular, \(P(E)<\infty\) and \(|D\chi_E| = \Haus^{n-1}\resmes \de E\). Let \(G\) be the projection of \(E\) on \(\R^{n-1}\), or equivalently
     \[
@@ -178,21 +173,21 @@ Since \(T\) is an isometry, \(|S_v(E)|=|E|\) and \(\diam(S_v(E)) \le \diam(E)\).
         P(E^s) \le \sum_{k=1}^{N(h)} \int_{G_h} \sqrt{4N(h)^2+|\nabla m|^2} \dif z \le P(E).
     \end{equation}
 
-    Let us denote
-    \[
-        D \coloneq \{ z \in \R^{n-1} \colon E_z \text{ is not an interval}\} = \bigcup \{ G_h \colon N(h) \ge 2\}.
-    \]
     We have just found that
     \begin{align*}
-        P(E)-P(E^s) &\ge \sum_{h=1}^M \int_{G_h \cap D} \left(\sqrt{4N(h)^2+|\nabla m|^2} - \sqrt{4+|\nabla m|^2} \right)\dif z\\
-        &= \sum_{h=1}^M \int_{G_h \cap D} \frac{4(N(h)^2-1)}{\sqrt{4N(h)^2+|\nabla m|^2} + \sqrt{4+|\nabla m|^2}}\dif z\\
-        & \ge 2 \frac{1}{\sqrt{4N(h)^2 + |\nabla m|^2}} \dif z.
+        P(E)-P(E^s) &\ge \sum_{N(h)\ge 2} \int_{G_h} \left(\sqrt{4N(h)^2+|\nabla m|^2} - \sqrt{4+|\nabla m|^2} \right)\dif z\\
+        &= \sum_{N(h)\ge 2} \int_{G_h} \frac{4(N(h)^2-1)}{\sqrt{4N(h)^2+|\nabla m|^2} + \sqrt{4+|\nabla m|^2}}\dif z\\
+        & \ge \sum_{N(h)\ge 2} \int_{G_h} 2 \frac{1}{\sqrt{4N(h)^2 + |\nabla m|^2}} \dif z.
     \end{align*}
-    Thus, by Cauchy-Schwarz inequality and \eqref{eq: P(E^s)<(int)<P(E)},
+    If
+    \[
+        D \coloneq \{ z \in \R^{n-1} \colon E_z \text{ is not an interval}\} = \bigcup_{N(h)\ge 2} G_h,
+    \]
+    then by Cauchy-Schwarz inequality and \eqref{eq: P(E^s)<(int)<P(E)},
     \begin{equation}\label{eq: estimate on D}
         \begin{aligned}
-            2\Leb^{n-1}(D)^2 &= 2 \left( \int_D \frac{(4N(h)^2+|\nabla m|^2)^{1/4}}{(4N(h)^2+|\nabla m|^2)^{1/4}} \right)^2 \\
-            &\ge P(E) (P(E)-P(E^s)).
+            2\Leb^{n-1}(D)^2 &= 2 \left( \sum_{N(h)\ge 2}\int_{G_h} \frac{(4N(h)^2+|\nabla m|^2)^{1/4}}{(4N(h)^2+|\nabla m|^2)^{1/4}} \right)^2 \\
+            &\le P(E) (P(E)-P(E^s)).
         \end{aligned}
     \end{equation}
     
@@ -212,7 +207,7 @@ Since \(T\) is an isometry, \(|S_v(E)|=|E|\) and \(\diam(S_v(E)) \le \diam(E)\).
     \]
     Applying step 1 to each \(E_h\), by \eqref{eq: P(E^s)<(int)<P(E)} and \eqref{eq: estimate on D} we get
     \begin{equation}\label{eq: step 1 to E_h}
-        P(E_h^s) \le P(E_h^s), \qquad 2 \Leb^{n-1}(D_h) \le P(E_h)(P(E_h)-P(E_h^s)).
+        P(E_h^s) \le P(E_h^s), \qquad 2 \Leb^{n-1}(D_h)^2 \le P(E_h)(P(E_h)-P(E_h^s)).
     \end{equation}
     Moreover, by Fubini's theorem,
     \begin{equation*}
