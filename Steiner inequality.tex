@@ -56,8 +56,6 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
         P(S_v(E)) \le P(E),
     \end{equation*}
     and the equality holds if and only the \(z\)-slice \(E_z^v\) is an interval for a.e. \(z \in \R^{n-1}\). 
-
-    Moreover, if \(E\) is equivalent to a convex set, then the equality holds if and only if \(E\) is equivalent to \(S_v(E) + cv\) for some \(c \in \R\).
 \end{thm}
 
 \begin{proof}
@@ -207,7 +205,7 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
     \]
     Applying step 1 to each \(E_h\), by \eqref{eq: P(E^s)<(int)<P(E)} and \eqref{eq: estimate on D} we get
     \begin{equation}\label{eq: step 1 to E_h}
-        P(E_h^s) \le P(E_h^s), \qquad 2 \Leb^{n-1}(D_h)^2 \le P(E_h)(P(E_h)-P(E_h^s)).
+        P(E_h^s) \le P(E_h), \qquad 2 \Leb^{n-1}(D_h)^2 \le P(E_h)(P(E_h)-P(E_h^s)).
     \end{equation}
     Moreover, by Fubini's theorem,
     \begin{equation*}
@@ -248,31 +246,32 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
     \end{aligned}
     \end{equation*}
     having used the 1-dimensional isoperimetric inequality in the last line, i.e., that \(P(E_z) \ge 2\) for a.e. \(z \in \R^{n-1}\). This implies that \(P(E_z)=2\) for a.e. \(z \in \R^{n-1}\), so, by the characterization of the equality in the 1-dimensional case, \(E_z\) is an interval for a.e. \(z \in \R^{n-1}\). 
+\end{proof}
 
-    \emph{Step 3}. Assume that \(E\) is convex, \(|E|<\infty\) and \(P(E)=P(E^s)\). Since \(\Leb^n(\de E)=0\)\footnote{
+\begin{lemma}
+    Let \(E\subset \R^n\) be a convex set with \(|E|<\infty\) and \(P(E)<\infty\), and let \(v\in\R^{n-1}\) a unit vector such that \(P(S_v(E))=P(E)\). Then there exists \(c \in \R\) such that \(E\) is equivalent to the translated \(S_v(E) + cv\).
+\end{lemma}
+\begin{proof}
+    Assume without loss of generality that \(v=e_n\), and denote \(S_v(E)=E^s\). Since \(\Leb^n(\de E)=0\)\footnote{
     Indeed, without loss of generality assume that \(0 \in \mathring{C}\). Then by convexity, for every \(\eps>0\)
     \[  
         \de C \subset \left(\frac{1}{1-\eps}\mathring{C} \right) \setminus C.
     \]
     }, 
-    we may assume that \(E\) is open. Then the projection \(G\subset \R^{n-1}\) is a convex set, and for every \(z \in G\), the vertical \(z\)-slice is
-    \[
-        E_z= (-v(z),u(z)),
-    \]
-    where \(v,u \colon G \to \R\) are respectively convex and concave functions, so in particular they are locally Lipschitz and \(E\) has Lipschitz boundary. By Rademacher's theorem, \(\nabla u\) and \(\nabla v\) are defined at a.e. \(z \in G\), so
+    we may assume that \(E\) is open. Then the projection \(G\subset \R^{n-1}\) is a convex set, and for every \(z \in G\), the vertical \(z\)-slice is equivalent to the open interval \((-v(z),u(z))\), where \(v,u \colon G \to \R\) are concave non negative functions, so in particular they are locally Lipschitz and \(E\) has Lipschitz boundary. By Rademacher's theorem, \(\nabla u\) and \(\nabla v\) are defined at a.e. \(z \in G\), so
     \begin{equation*}%\label{eq: P(E), P(E^s) convex case}
     \begin{aligned}
         P(E) &= \int_G \left( \sqrt{1+|\nabla u|^2} + \sqrt{1+|\nabla v|^2} \right) \dif z\\
-        P(E^s) &= \int_G  \sqrt{1+\left| \frac{\nabla u + \nabla v}{2}\right|^2} \dif z
+        P(E^s) &= 2\int_G  \sqrt{1+\left| \frac{\nabla u + \nabla v}{2}\right|^2} \dif z
     \end{aligned}
     \end{equation*}
     since 
     \[  
         E^s = \left\{ (z,t) \in G \times \R \colon |t|< \frac{u(z)+v(z)}{2}\right\}.
     \]
-    Since the function \(z \mapsto \sqrt{1+|z|^2}\) is strictly convex,
+    By the strict convexity of the function \(z \mapsto \sqrt{1+|z|^2}\),
     \[
-        \sqrt{1+|\nabla u|^2} + \sqrt{1+|\nabla v|^2} \ge \sqrt{1+\left| \frac{\nabla u + \nabla v}{2}\right|^2}
+        \sqrt{1+|\nabla u|^2} + \sqrt{1+|\nabla v|^2} \ge 2\sqrt{1+\left| \frac{\nabla u + \nabla v}{2}\right|^2}
     \]
     with equality if and only if \(\nabla u = \nabla v\). Hence, if \(P(E^s)=P(E)\), the equality holds almost everywhere and there must be that \(\nabla u = \nabla v\) a.e. in \(G\). Thus, there exists \(c \in \R\) such that \(u(z)-v(z)= c\) for a.e. \(z \in G\), which implies that 
     \[
@@ -296,13 +295,24 @@ where
 \[
     Q^n(x,r)= x+(-r,r)^n
 \]
-is the cube centered at \(x\) with side \(2r\).
+is the cube centered at \(x\) with side \(2r\). 
 
-We denote
+Observe that \(\Leb^n \resmes E= \chi_E \Leb^n\), so by Besicovitch differentiation theorem, 
 \[
-    E^{(1)} \coloneq \{ x \in \R^n \colon \Theta(E,x)=1\}
+    \chi_E = \frac{\dif (\Leb^n \resmes E)}{\dif \Leb^n} = \Theta(E,\cdot)
 \]
-the set of with density one points of \(E\). A standard application of Besicovitch's covering theorem shows that \(|E \triangle E^{(1)}|=0\). 
+a.e. on \(\R^n\), that is,
+\[
+    \Theta(E,x)= \begin{cases}
+        1 & \text{ a.e. }x \in E\\
+        0 & \text{ a.e. }x \in \R^n \setminus E.
+    \end{cases}
+\]
+In particular, \(E\) is equivalent to
+\[
+    E^{(1)} \coloneq \{ x \in \R^n \colon \Theta(E,x)=1\},
+\]
+the set of with density one points of \(E\). This will be the ‘‘good set'' to replace \(E\) with.
 
 \begin{lemma}\label{lemma: density points and vertical sections}
     Let \(E \subset \R^n\) be a set of locally finite perimeter and suppose that \(E_z\) is equivalent to an interval for a.e. \(z \in \R^{n-1}\). Then \((E^{(1)})_z\) is an interval for every \(z \in \R^{n-1}\).
