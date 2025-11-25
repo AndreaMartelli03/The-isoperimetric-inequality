@@ -36,7 +36,7 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
     \]
     By the lower semicontinuity of the total variation,
     \[
-        P(E_z) \le \liminf_{h\to \infty} \int_\R \left|\de_t u_h(z,t) \right| \dif t \le \liminf_{h\to \infty} |\nabla u_h(z,t)|\dif t,
+        P(E_z) \le \liminf_{h\to \infty} \int_\R \left|\de_t u_h(z,t) \right| \dif t \le \liminf_{h\to \infty} \int_\R|\nabla u_h(z,t)|\dif t,
     \]
     and by Fatou's lemma, Fubini's theorem and \eqref{eq: P(E)=lim_eps int nabla u_eps}, we get
     \[
@@ -194,6 +194,15 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
         E_h \to E, \qquad P(E_h) \to P(E).
     \]
     Note that we can assume that the outer unit normal of \(\de E_h\) is never orthogonal to \(e_n\). Indeed, this is an ‘‘open condition'', so if it happens that the unit normal of \(\de E_h\) is orthogonal to \(e_n\), we only need to rotate slightly \(\de E\). Doing smaller and smaller rotations as \(h \to \infty\), we still have that \(E_h \to E\) (while \(P(E_h) \to P(E)\) isn't affected by rotations). 
+    
+    Observe that, since \((E_h \triangle E)_z=((E_h)_z\triangle E_z)\), by Fubini
+    \[
+        \int_{\R^{n-1}} \Leb^1((E_h)_z \triangle E_z) \dif z = |E_h \triangle E| \to 0,
+    \]
+    so \((E_h)_z \to E_z\) for a.e. \(z \in \R^{n-1}\), and by the lower semicontinuity of the perimeter
+    \begin{equation}\label{eq: P(E_z) < liminf P(E_hz)}
+        P(E_z) \le \liminf_{h \to \infty}P((E_h)_z).
+    \end{equation}
 
     For every \(h \in \N\), denote
     \[
@@ -218,16 +227,26 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
     \[
         P(E^s) \le \liminf_{h \to \infty} P(E_h^s) \le \lim_{h \to \infty} P(E_h) = P(E).
     \]
-    Moreover,
-    \begin{equation}\label{eq: G_h -> G, E_hz -> E_z}
-        G_h \to G, \qquad (E_h)_z \to E_z \quad \text{ for a.e. }z \in \R^{n-1}
-    \end{equation}
-    By Proposition~\ref{prop: slicing} the vertical \(z\)-slices \((E_h)_z\) and \(E_z\) have finite perimeter for a.e. \(z \in \R^{n-1}\), thus by the lower semicontinuity of the perimeter
-    \begin{equation}\label{eq: P(E_z) < liminf P(E_hz)}
-        P(E_z) \le \liminf_{h \to \infty}P((E_h)_z).
-    \end{equation}
 
-    Now, assume that \(P(E)=P(E^s)\). Then, by \eqref{eq: step 1 to E_h}, \(\chi_{D_h} \to 0\) in \(L^1(\R^{n-1})\), so, up to passing to a subsequence, we have the pointwise limit
+    Now, assume that \(P(E)=P(E^s)\) and let us prove that \(E_z\) is equivalent to an interval for a.e. \(z \in \R^{n-1}\). By Proposition~\ref{prop: slicing}, \(P(E_z)<\infty\) for a.e. \(z \in \R^{n-1}\). Moreover, since \(E_h \to E\), we have that
+    \begin{equation*}
+        G_h \to G.
+    \end{equation*}
+    Indeed, \(G_h \triangle G\) is equivalent to
+    \[
+        \{ z \in \R^{n-1} \colon \Leb^1((E_h)_z \triangle E_z) >0\} = \bigsqcup_{k \in \Z} G_h^k,
+    \]
+    where
+    \[
+        G_h^k \coloneq \left\{ z \in \R^{n-1} \colon \left(1+\frac{1}{h}\right)^k \le \Leb^1((E_h)_z \triangle E_z) < \left(1+\frac{1}{h}\right)^{k+1} \right\}.
+    \]
+    Then, 
+    \begin{align*}
+        \sum_{k \in \Z} \left(1+\frac{1}{h}\right)^k \Leb^{n-1}(G_h^k) \le \sum_{k \in \Z}\int_{G_h^k} \Leb^1((E_h)_z \triangle E_z) \dif z = |E_h \triangle E|,
+    \end{align*}
+    and taking the limsup as \(h \to 0\), we get \(\limsup_{h \to \infty}\Leb^{n-1}(G_h \triangle G) = 0\).
+    
+    Then, by \eqref{eq: step 1 to E_h}, \(\chi_{D_h} \to 0\) in \(L^1(\R^{n-1})\), so, up to passing to a subsequence, we have the pointwise limit
     \[
         \chi_{G}(z) = \lim_{h \to \infty}\chi_{G_h\setminus D_h}(z)
     \]
@@ -240,12 +259,12 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
     \begin{aligned}
         \int_G P(E_z) \dif z & \le \int_{\R^{n-1}} \liminf \chi_{G_h \setminus D_h}(z)P((E_h)_z) \dif z\\
         &\le \liminf_{h \to \infty} \int_{G_h \setminus D_h}P((E_h)_z) \dif z\\
-        &= 2 \liminf_{h \to \infty} \Leb^{n-1}(G_h \setminus D_h) \\
+        &= 2 \liminf_{h \to \infty} \Leb^{n-1}(G_h \setminus D_h)\\
         &= 2 \Leb^{n-1}(G) \\
         &\le \int_G P(E_z) \dif z
     \end{aligned}
     \end{equation*}
-    having used the 1-dimensional isoperimetric inequality in the last line, i.e., that \(P(E_z) \ge 2\) for a.e. \(z \in \R^{n-1}\). This implies that \(P(E_z)=2\) for a.e. \(z \in \R^{n-1}\), so, by the characterization of the equality in the 1-dimensional case, \(E_z\) is an interval for a.e. \(z \in \R^{n-1}\). 
+    having used that for every \(z \in G_h \setminus D_h\) the slice \((E_h)_z\) is equivalent to a bounded interval, and the 1-dimensional isoperimetric inequality, i.e., that \(P(E_z) \ge 2\) for a.e. \(z \in \R^{n-1}\). Since \(P(E_z) < \infty \) for a.e. \(z \in \R^{n-1}\), this implies that \(P(E_z)=2\) for a.e. \(z \in \R^{n-1}\), so, by the characterization of the equality in the 1-dimensional case, \(E_z\) is an interval for a.e. \(z \in \R^{n-1}\). 
 \end{proof}
 
 \begin{lemma}
