@@ -222,3 +222,45 @@ We are going to use the following well known result.
     as \(i \to \infty\), as required. \qedhere
 \end{enumerate}
 \end{proof}
+
+
+
+%%%%%%%%% Old "unbounded case" in polyhedral approximation
+
+We are going to use the following lemma, which is independent from all the results given in these notes.
+\begin{lemma}[{\cite[Lemma~15.2]{Maggi_2012}}]\label{lemma: intersection with balls}
+    Let \(E \subset \R^n\) be a set of locally finite perimeter and let \(x \in \R^n\). Then for every \(R>0\) the set \(E\cap B_R(x)\) has finite perimeter in \(\R^n\). Moreover, for a.e. \(R>0\)
+    \[
+    \begin{aligned}
+        P(E\cap B_R(x))=P(E;B_R(x)) + \Haus^{n-1}(E \cap \de B_R(x)).
+    \end{aligned}
+    \]
+\end{lemma}
+
+
+\emph{Step 2.} Now suppose that \(E\) is not bounded. We will find a sequence \(R_i \nearrow \infty\) such that \(E \cap B_{R_i} \to E\) and \(P(E \cap B_{R_i}) \to P(E)\). Then we just need to approximate each \(E \cap B_{R_i}\) using the previous step. Since \(|E|<\infty\), \(E\cap B_{R_i} \to E\)
+    and whenever \(R_i \to\infty\), so we have to choose \(R_i\) only worrying to achieve \(P(E\cap B_{R_i}) \to P(E)\). First notice that, since \(P(E)<\infty\) (i.e. \(|D\chi_E|\) is a finite measure), whenever \(R_i \nearrow \infty\) we have
+    \begin{align*}
+        \lim_{i \to \infty}P(E;\R^n \setminus B_{R_i}) = \lim_{i \to \infty}|D\chi_E|(\R^n \setminus B_{R_i})=0\\
+        \lim_{i \to \infty}P(E;B_{R_i}) = \lim_{i \to \infty} |D\chi_E|(B_{R_i}) = P(E)
+    \end{align*}
+    by continuity from above and below respectively. By Lemma~\ref{lemma: intersection with balls}, 
+    \begin{equation}\label{eq: decompsition of P(E cap B_R)}
+        P(E\cap B_R) = P(E;B_R) + \Haus^{n-1}(E \cap \de B_R) \quad \text{for a.e. }R>0.
+    \end{equation}
+    By the coarea formula applied to the function \(\rho(x)=|x|\),
+    \[
+        \int_0^\infty \Haus^{n-1}(E \cap \de B_R) \dif R = \int_E |\nabla \rho| \dif x = |E| < \infty
+    \]
+    since \(\nabla \rho(x)=x/|x|\). Therefore, there exists a sequence \(R_i \nearrow \infty\) such that \eqref{eq: decompsition of P(E cap B_R)} holds for every \(R_i\) and 
+    \[
+        \Haus^{n-1}(E \cap \de B_{R_i}) \to 0.
+    \]
+    Hence,
+    \[
+    \begin{aligned}
+        |P(E)-P(E\cap B_{R_i})| &\le |P(E)-P(E;B_{R_i})|+ |P(E;B_{R_i})- P(E \cap B_{R_i})| \\
+        &= |P(E)-P(E;B_{R_i})| + \Haus^{n-1}(E \cap \de B_{R_i}) \to 0.
+    \end{aligned}
+    \]
+    as \(i \to \infty\), as required. 

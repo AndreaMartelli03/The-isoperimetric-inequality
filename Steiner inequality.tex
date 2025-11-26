@@ -12,44 +12,6 @@ By Fubini's theorem, \(|S_v(E)|=|E|\). It is also quite easy to prove that
 \]
 In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) with a suitable change of coordinates, that is, we take \(v = e_n\). 
 
-\begin{prop}[Slicing perimeter by lines]\label{prop: slicing}
-    Let \(E \subset \R^n\) be a Lebesgue measurable set with \(|E|<\infty\) and \(P(E)<\infty\), and fix a unit vector \(v \in \R^n\). Then, 
-    \begin{equation*}
-        \int_{\R^{n-1}} P(E_z^v) \dif z \le P(E).
-    \end{equation*}
-    and in particular the \(v\)-vertical \(z\)-slice \(E_z^v\) is a set of finite perimeter in \(\R\) for a.e. \(z \in \R^{n-1}\).
-\end{prop}
-\begin{proof}
-    Write \(E_z=E_z^v\). Fix a mollifier \(\rho \in C^\infty_c(B_1)\) and let \(u_\eps \coloneq \chi_E \star \rho_\eps\), so that
-    \(u_\eps \to \chi_E\) and 
-    \begin{equation}\label{eq: P(E)=lim_eps int nabla u_eps}
-        P(E) = \lim_{\eps \to 0} \int_{\R^n} |\nabla u_\eps|\dif x.
-    \end{equation}
-    
-    By Fubini's theorem,
-    \[
-        \int_{\R^{n-1}} \int_\R |u_\eps(z,t)-\chi_{E_z}(t)| \dif t \dif z = \int_{\R^n} |u_\eps-\chi_E| \dif x \to 0
-    \]
-    since \(u_\eps \to \chi_E\) in \(L^1\), so there exists a sequence \(\eps_h \searrow 0\) such that
-    \[
-        u_h(z,\cdot) \coloneq u_{\eps_h}(z,\cdot) \to \chi_{E_z} \qquad \text{for a.e. }z \in \R^{n-1}.
-    \]
-    By the lower semicontinuity of the total variation,
-    \[
-        P(E_z) \le \liminf_{h\to \infty} \int_\R \left|\de_t u_h(z,t) \right| \dif t \le \liminf_{h\to \infty} \int_\R|\nabla u_h(z,t)|\dif t,
-    \]
-    and by Fatou's lemma, Fubini's theorem and \eqref{eq: P(E)=lim_eps int nabla u_eps}, we get
-    \[
-    \begin{aligned}
-        \int_{\R^{n-1}} P(E_z) \dif z &\le \int_{\R^{n-1}} \left(\liminf_{h\to \infty} \int_\R |\nabla u_h(z,t)|\dif t\right) \dif z \\
-        &\le \liminf_{h \to \infty} \int_{\R^{n-1}} \int_\R|\nabla u_h(z,t)| \dif t \dif z \\
-        &= \lim_{h \to \infty} |\nabla u_h| \dif x = P(E),
-    \end{aligned}
-    \]
-    as required.
-\end{proof}
-
-
 \begin{thm}[Steiner inequality]\label{thm: steiner inequality}
     Let \(E\subset \R^n\) be a set with \(|E|<\infty\) and finite perimeter \(P(E)<\infty\). Then for every unit vector \(v \in \R^n\)
     \begin{equation*}
@@ -228,7 +190,7 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
         P(E^s) \le \liminf_{h \to \infty} P(E_h^s) \le \lim_{h \to \infty} P(E_h) = P(E).
     \]
 
-    Now, assume that \(P(E)=P(E^s)\) and let us prove that \(E_z\) is equivalent to an interval for a.e. \(z \in \R^{n-1}\). By Proposition~\ref{prop: slicing}, \(P(E_z)<\infty\) for a.e. \(z \in \R^{n-1}\). Moreover, since \(E_h \to E\), we have that
+    Now, assume that \(P(E)=P(E^s)\) and let us prove that \(E_z\) is equivalent to an interval for a.e. \(z \in \R^{n-1}\). Moreover, since \(E_h \to E\), we have that
     \begin{equation*}
         G_h \to G.
     \end{equation*}
@@ -264,7 +226,7 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
         &\le \int_G P(E_z) \dif z
     \end{aligned}
     \end{equation*}
-    having used that for every \(z \in G_h \setminus D_h\) the slice \((E_h)_z\) is equivalent to a bounded interval, and the 1-dimensional isoperimetric inequality, i.e., that \(P(E_z) \ge 2\) for a.e. \(z \in \R^{n-1}\). Since \(P(E_z) < \infty \) for a.e. \(z \in \R^{n-1}\), this implies that \(P(E_z)=2\) for a.e. \(z \in \R^{n-1}\), so, by the characterization of the equality in the 1-dimensional case, \(E_z\) is an interval for a.e. \(z \in \R^{n-1}\). 
+    having used that for every \(z \in G_h \setminus D_h\) the slice \((E_h)_z\) is equivalent to a bounded interval, and the 1-dimensional isoperimetric inequality, i.e., that \(P(E_z) \ge 2\) for a.e. \(z \in \R^{n-1}\). Then, \(P(E_z)=2\) for a.e. \(z \in \R^{n-1}\), so, by the characterization of the equality in the 1-dimensional case, \(E_z\) is an interval for a.e. \(z \in \R^{n-1}\). 
 \end{proof}
 
 \begin{lemma}

@@ -63,114 +63,35 @@ is the \emph{Jacobi operator} of \(\Sigma\). Any hypersurface \(\Sigma\) that sa
 This approach can give another proof of the isoperimetric inequality. In particular, it holds the following stronger result.
 
 \begin{thm}[Barbosa-do Carmo, {\cite{BarbosaDoCarmo}}]\label{thm: Barbosa-do Carmo}
-    Let \(\Sigma\) be a compact, connected, orientable, CMC hypersurface in \(\R^n\). Then \(\Sigma\) is CMC-stable if and only if \(\Sigma\) is a round sphere.
+    Let \(\Sigma\) be a compact, connected, orientable, immersed CMC hypersurface in \(\R^n\). Then \(\Sigma\) is CMC-stable if and only if \(\Sigma\) is a round sphere.
 \end{thm}
 
-\begin{proof}
-Let \(\Sigma\) be a sphere, and assume without loss of generality that \(\Sigma = \Sp^{n-1}\) has radius \(1\) and is centered at the origin. Since \(\nu(x)=x\), we have \(\dif \nu = \id\), hence \(H = (n-1)\) and \(|A|^2 = (n-1)\). Thus, \(\Sp^{n-1}\) is CMC. The spectrum of the spherical Laplacian \(\Delta_{\Sp^{n-1}}\) is well known thanks to the formula of the standard Laplacian of \(\R^n\) in spherical coordinates
-\[
-    \Delta_{\R^n} = \frac{\de^2}{\de r^2} + \frac{n-1}{r} \frac{\de}{\de r} + \frac{1}{r^2}\Delta_{\Sp^{n-1}},
-\]
-that allows us to identify the homogeneous harmonic functions of \(\R^n\) with the eigenfunctions of \(\Delta_{\Sp^{n-1}}\). In particular, the first nonzero eigenvalue of \(\Delta_{\Sp^{n-1}}\) is
+The proof is basically just a computation: test the function \(u(x) = H (\nu(x) \cdot x)-n+1\) in \eqref{eq: stability inequality}. 
+
+A.D. Alexandrov, with the celebrated \emph{moving plane method} (i.e., the maximum principle), proved that actually spheres are the only \emph{critical points} of the area functional with respect to variations with fixed volume.
+
+\begin{thm}[Alexandrov, {\cite{Alexandrov1962}}]
+    Let \(\Sigma\) be a compact, connected, embedded CMC hypersurface in \(\R^n\). Then \(\Sigma\) is a round sphere.
+\end{thm}
+
+\emph{A posteriori}, assuming that \(\Sigma\) is connected in the isoperimetric problem \eqref{eq: isoperimetric problem} is not restrictive. In fact assume that \(\Sigma = \de \Omega\) is not connected. Let \(\Omega_1, \dots, \Omega_k\) be the connected components of \(\Omega\), and \(\Sigma_0^j,\dots,\Sigma_{N(j)}^j\) the connected components of \(\Sigma\) such that \(\de \Omega_j = \bigcup_i \Sigma_i^j\). Since each \(\Sigma_i^j\) is CMC-stable, by Theorem~\ref{thm: Barbosa-do Carmo} it's a round sphere, so \(\Sigma_i^j\) a boundary of a ball \(B_i^j\). Hence, every \(\Omega_j\) must be obtained by removing some disjoint balls \(B_1^j,\dots, B_{N(j)}^i\) from an initial big ball \(B_0^j\) of radius \(R_j\). Denote \(\Omega^* = \bigcup_j B_0^j \supset \Omega\) and \(\Sigma^* = \de \Omega^* \subset \Sigma\). Then it's easy to see (for example, by induction over \(k\)) that
 \[
 \begin{aligned}
-    \lambda_1 &= \inf\left\{ \frac{\int_{\Sp^{n-1}} |\nabla_{\Sp^{n-1}} u|^2  \dif \Haus^{n-1}}{\int_{\Sp^{n-1}} u^2 \dif \Haus^{n-1}} \colon u \in C^{\infty}(\Sp^{n-1}) \setminus \{0\},\ \int_{\Sp^2} u \ \dif \Haus^{n-1}=0\right\} \\
-    &=(n-1).
+    \Haus^{n-1}(\Sigma^*)^n &= \left(n \omega_n \sum_{j=1}^k R_j^{n-1}\right)^n = n^n \omega_n^n \left( \sum_{j=1}^k R_j^{n-1}\right)^n \\
+    & \ge n^n \omega_n^n \left(\sum_{j=1}^k R_j^n\right)^{n-1} = n^n \omega_n^{n-1} \left( \omega_n \sum_{j=1}^k R_j^n\right)^{n-1}\\
+    &= n^n \omega_n |\Omega^*|^{n-1}
 \end{aligned}
 \]
-Thus, for every smooth function \(u \colon \Sp^{n-1} \to \R\) with zero average
+with strict inequality whenever \(k>1\), which is indeed the case if \(\Sigma=\Sigma^*\). If instead \(\Sigma \ne \Sigma^*\), then observe that
 \[
-    \int_{\Sp^{n-1}} |\nabla_{\Sp^{n-1}}u|^2-(n-1)u^2 \ \dif \Haus^{n-1} \ge 0,
+    \Haus^{n-1}(\Sigma) > \Haus^{n-1}(\Sigma^*) \ge n \omega_n^{1/n}|\Omega^*|^{\frac{n-1}{n}} > n \omega_n^{1/n}|\Omega|^{\frac{n-1}{n}}.
 \]
-that is, \(\Sp^{n-1}\) is CMC-stable.
 
-Now assume that \(\Sigma\) is CMC-stable, and let us prove that it must be a sphere.
-Consider the function \(f \colon \Sigma \to \R\) defined by
-\[
-    f(x)= x \cdot \nu(x) 
-\]
-and the radial vector field \(X(x)=x\), for every \(x \in \Sigma\). Even if \(X\) is not tangent, we can define its divergence on \(\Sigma\) as
-\[
-    \dive_\Sigma X = \sum_{i=1}^{n-1} (D_{\tau_i} X) \cdot \tau_i 
-\]
-locally for any orthonormal frame \(\tau_1,\dots,\tau_n\) of \(\Sigma\). Since \(X\) is the restriction of the identity,
-\[
-    \dive_\Sigma X = \sum_{i=1}^{n-1} (D_{\tau_i} X) \cdot \tau_i = \sum_{i=1}^{n-1} \tau_i \cdot \tau_i = n-1.
-\]
-By the generalized divergence theorem for submanifolds,
-\[  
-\begin{aligned}
-    \int_\Sigma \dive_\Sigma X \ \dif \Haus^{n-1} &= \int_{\de\Sigma} X \cdot \nu_{\de \Sigma} \ \dif \Haus^{n-2} + \int_\Sigma HX\cdot \nu \ \dif \Haus^{n-1}\\
-    &= H\int_\Sigma f(x) \ \dif \Haus^{n-1}(x)
-\end{aligned}
-\]
-because \(\de \Sigma = \varnothing\). Therefore, \(u = Hf-n+1\) has zero average, and can be tested in \eqref{eq: stability inequality}.
 
-With a clever choice of frame, one can compute that
-\begin{equation}\label{eq: Laplacian of f}
-    \Delta_\Sigma f = H-|A|^2f.
-\end{equation}
-Therefore,
+However, this approach encounters an insurmountable limit in higher dimension: we are implicitly assuming that the category of sets with smooth boundary contains the minimizers of the isoperimetric problem. This is not obvious at all. Indeed, for dimension \(n \ge 8\) there exist area minimizing hypersurfaces that present singularities. This phenomena was first discovered by J. Simons in \cite{Simons_MinimalVarieties1968}, where he proved that the cone (which has been named after him)
 \[
-    L_\Sigma u = H^2-|A|^2Hf + |A|^2(Hf-n+1) = H^2-(n-1)|A|^2,
+    C \coloneq \{ (x,y) \in \R^4 \times \R^4 \colon |x|=|y|\}
 \]
-and \eqref{eq: stability inequality} becomes
-\[
-\begin{aligned}
-    0 &\le \int_\Sigma ((n-1)|A|^2-H^2) (Hf-n+1) \ \dif \Haus^{n-1}\\
-    &= (n-1)\int_\Sigma |A|^2(Hf-n+1) \ \dif \Haus^{n-1}.
-\end{aligned}
-\]
-By the divergence theorem and by \eqref{eq: Laplacian of f}
-\[
-    0 = \int_\Sigma \Delta_\Sigma f \ \dif \Haus^{n-1} = H\Haus^{n-1}(\Sigma)- \int_{\Sigma} |A|^2 f \ \dif \Haus^{n-1},
-\]
-so 
-\[
-    0 \le \int_\Sigma |A|^2(Hf-n+1) \ \dif \Haus^{n-1} = \int_\Sigma H^2-(n-1)|A|^2 \dif \Haus^{n-1},
-\]
-that is
-\begin{equation}\label{eq: (n-1)int |A|^2<int H^2}
-    (n-1)\int_\Sigma |A|^2\dif \Haus^{n-1} \le \int_\Sigma H^2 \dif \Haus^{n-1}.
-\end{equation}
-However, if \(\lambda_1, \dots, \lambda_{n-1}\) are the eigenvalues of \(A\), by the \(AM\le QM\) inequality we have that
-\[
-    H^2 = \left(\sum_{i=1}^{n-1}\lambda_i\right)^2 \le (n-1)\sum_{i=1}^{n-1}\lambda_i^2 = (n-1) |A|^2,
-\]
-with equality if and only if \(\lambda_1= \cdots =\lambda_{n-1}\). But by \eqref{eq: (n-1)int |A|^2<int H^2}, it must be \(H^2=(n-1)|A|^2\), that is,
-\[
-    \dif \nu = \frac{H}{n-1} \id 
-\]
-(in this case, \(\Sigma\) is called \emph{totally umbilical}). This implies that \(\Sigma\) is a sphere. Indeed, consider the map \(F \colon \Sigma \to \R^n\) given by
-\[
-   F(x) = \frac{H}{n-1}x-\nu(x) 
-\]
-for every \(x \in \Sigma\). Its differential vanishes, so, since \(\Sigma\) is connected, it's constant: there exists \(p \in \R^n\) such that
-\[
-    F(x)=\frac{H}{n-1}p
-\]
-for every \(x \in \Sigma\). But then
-\[
-    \nu(x) = \frac{H}{n-1}(x-p),
-\]
-and therefore
-\[
-    |x-p|= \frac{n-1}{|H|},
-\]
-for every \(x \in \Sigma\), that is, \(\Sigma\) is the sphere of radius \((n-1)/|H|\) centered at \(p\).
-\end{proof}
+is a stable minimal hypersurface away from 0, i.e., \(H=0\) and the inequality \eqref{eq: stability inequality} holds with every compact supported function \(u\) on \(C\setminus\{0\}\). One year later, Bombieri, De Giorgi and Giusti proved that \(C\) is actually area minimizing \cite{BombieriDeGiorgiGiusti_Bernstein1969} and found examples for every \(n \ge 8\).
 
-\begin{rmk}
-    \emph{A posteriori}, assuming that \(\Sigma\) is connected in the isoperimetric problem \eqref{eq: isoperimetric problem} is not restrictive. In fact assume that \(\Sigma = \de \Omega\) is not connected. Let \(\Omega_1, \dots, \Omega_k\) be the connected components of \(\Omega\), and \(\Sigma_0^j,\dots,\Sigma_{N(j)}^j\) the connected components of \(\Sigma\) such that \(\de \Omega_j = \bigcup_i \Sigma_i^j\). Since each \(\Sigma_i^j\) is CMC-stable, by Theorem~\ref{thm: Barbosa-do Carmo} it's a round sphere, so \(\Sigma_i^j\) a boundary of a ball \(B_i^j\). Hence, every \(\Omega_j\) must be obtained by removing some disjoint balls \(B_1^j,\dots, B_{N(j)}^i\) from an initial big ball \(B_0^j\) of radius \(R_j\). Denote \(\Omega^* = \bigcup_j B_0^j \supset \Omega\) and \(\Sigma^* = \de \Omega^* \subset \Sigma\). Then it's easy to see (for example, by induction over \(k\)) that
-    \[
-    \begin{aligned}
-        \Haus^{n-1}(\Sigma^*)^n &= \left(n \omega_n \sum_{j=1}^k R_j^{n-1}\right)^n = n^n \omega_n^n \left( \sum_{j=1}^k R_j^{n-1}\right)^n \\
-        & \ge n^n \omega_n^n \left(\sum_{j=1}^k R_j^n\right)^{n-1} = n^n \omega_n^{n-1} \left( \omega_n \sum_{j=1}^k R_j^n\right)^{n-1}\\
-        &= n^n \omega_n |\Omega^*|^{n-1}
-    \end{aligned}
-    \]
-    with strict inequality whenever \(k>1\), which is indeed the case if \(\Sigma=\Sigma^*\). If instead \(\Sigma \ne \Sigma^*\), then observe that
-    \[
-        \Haus^{n-1}(\Sigma) > \Haus^{n-1}(\Sigma^*) \ge n \omega_n^{1/n}|\Omega^*|^{\frac{n-1}{n}} > n \omega_n^{1/n}|\Omega|^{\frac{n-1}{n}}.
-    \]
-\end{rmk}
+In general, an area minimizing ‘‘hypersurface'' \(\Sigma \subset \R^n\) (here, we should use the language of currents and substitute \(\Sigma\) with an \((n-1)\)-integral current) is smooth if \(n \le 7\), while if \(n \ge 8\) its singular set has Hausdorff dimension at most \((n-1)-7\). This result has been proved with the hard work of many great mathematicians such as Fleming and De Giorgi (\(n=3\), \cite{Fleming, DeGiorgi1965}), Almgren (\(n=4\), \cite{Almgren_InteriorRegularity}), Simons (\(5\le n \le 7\), \cite{Simons_MinimalVarieties1968}) and Federer (\(n \ge 8\), \cite{Federer1970}). 
