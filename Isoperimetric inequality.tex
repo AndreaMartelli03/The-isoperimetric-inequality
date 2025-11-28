@@ -9,11 +9,11 @@
     \]
 \end{lemma}
 \begin{proof}
-    That \(\alpha(m,R)\) is realized is a consequence of the Direct Method, as bounded sets in \(BV(B_R)\) are precompact with respect to the BV-strict convergence, the family of characteristic functions of sets in \(B_R\) is closed, and any limit in the class preserves the volume. 
+    That \(\alpha(m,R)\) is realized is a consequence of the Direct Method, as bounded sets in \(BV(B_R)\) are precompact with respect to the weak* convergence, the family of characteristic functions of sets in \(B_R\) is weak*-closed, and any limit in the class preserves the volume. 
 
     Let us now assume that \(E \subset B_R\) satisfies \(|E|=m\) and \(P(E)=\alpha(m,R)\). Since \(|E\triangle E^{(1)}|=0\), we may assume that \(E=E^{(1)}\). For every unit vector \(v \in \R^n\), \(|v|=1\), by Theorem~\ref{thm: steiner inequality} we have that \(P(S_v(E))\le P(E)\). On the other hand, by the properties of the Steiner symmetrization \(|S_v(E)|=m\) and \(\diam(S_v(E)) \le \diam E<R\), so \(P(S_v(E)) \ge \alpha(m,R)=P(E)\). Then by Theorem~\ref{thm: steiner inequality} and Lemma~\ref{lemma: density points and vertical sections} 
     \[
-        E_{v,z} \coloneq \{ s \in \R \colon z + sv \in E\}
+        E_z^v \coloneq \{ s \in \R \colon z + sv \in E\}
     \]
     is an interval for every \(z \in v^\perp\). 
 
@@ -31,17 +31,18 @@
     \[
         S_{e_i}(E') = S_{e_i}(E) - \sum_{j \ne i} c_j e_j = E-c_ie_i - \sum_{j \ne i} c_j e_j = E',
     \]
-    so \(c_i'=0\) for every \(i=1,\dots,n\). Hence, \(E'\) is invariant under the reflections with respect to the coordinates planes, and therefore invariant under the map \(x\mapsto -x\) (the composition of all those reflections). Since for every unit vector \(v\) we can write \(E'=S_v(E)+c_v'v\), we have
+    so \(c_i'=0\) for every \(i=1,\dots,n\). Hence, \(E'\) is invariant under the reflections with respect to the coordinates planes, and therefore invariant under the map \(z\mapsto -z\) (the composition of all those reflections). Since for every unit vector \(v\) we can write \(E'=S_v(E)+c_v'v\), we have
     \begin{equation}\label{eq: gaining symmetry}
-        S_v(E)+c'_vv =  -S_v(E) - c'_vv = S_v(E) + c'_v(-v).
+        S_v(E)+c'_vv =  -S_v(E) - c'_vv = S_v(E) - c'_vv.
     \end{equation}
-    Clearly, \(c_{-v}'=-c_v'\) for every unit vector \(v\). On the other hand, combining \eqref{eq: gaining symmetry} with the fact that \(S_v(E)=S_{v'}(E)\), we also have that \(c_v'=c_{-v}'\). Therefore, for every unit vector \(v \in \R^n\), it must be \(c_v'=0\), that is, \(S_v(E')=E'\).
+    Clearly, \(c_{-v}'=-c_v'\) for every unit vector \(v\). On the other hand, combining \eqref{eq: gaining symmetry} with the fact that \(S_v(E)=-S_v(E)=S_{-v}(E)\), we also have that \(c_v'=c_{-v}'\). Therefore, for every unit vector \(v \in \R^n\), it must be \(c_v'=0\), that is, \(S_v(E')=E'\).
     
-    As a consequence, \(E'\) is invariant under reflections across hyperplanes through the origin. Since compositions of such reflections generate all rotations fixing the origin, it follows that \(E'\) is invariant under every rotation that fixes the origin. Hence, all the sections 
-    \[
-        E_v' \coloneq  \{ s \in \R \colon sv \in E'\}, \qquad v\in \R^n, \ |v|=1,
-    \]
-    must be equal, and since \(E'\) is bounded there exists \(r>0\) such that \(E_v'=(-r,r)\) for every unit vector \(v \in \R^n\). Hence, \(E'=B_r(0)\) and \(E=B_r(p)\), with \(p=(c_{e_1},\dots,c_{e_n})\).
+    As a consequence, \(E'\) is invariant under reflections across hyperplanes through the origin. Since the set of those reflections generates \(O(n)\), it follows that \(E'\) is invariant under every rotation that fixes the origin. Since \(|E'|=m>0\), $E'\ne\{0\}$ . Let $x \in E', \ x \neq 0$. Since the rotations fixing the origin are a group that acts transitively on the sphere $S_{|x|}$ of radius $|x|$, it follows that $S_{|x|}$ is contained in $E'$. By the convexity of $E'$, the whole ball $B_{|x|}$ of radius $|x|$ is contained in $E'$. Since $x$ was arbitrary, then $E'$ is a union of concentric balls centered at the origin and since $E'$ is bounded, it must be a ball. 
+    %Hence, all the sections 
+    %\[
+     %   E_v' \coloneq  \{ s \in \R \colon sv \in E'\}, \qquad v\in \R^n, \ |v|=1,
+    %\]
+    %must be equal, and since \(E'\) is bounded there exists \(r>0\) such that \(E_v'=(-r,r)\) for every unit vector \(v \in \R^n\). Hence, \(E'=B_r(0)\) and \(E=B_r(p)\), with \(p=(c_{e_1},\dots,c_{e_n})\).
 \end{proof}
 
 We can now prove the isoperimetric inequality.
@@ -58,11 +59,7 @@ We can now prove the isoperimetric inequality.
     \[
         P(E) = n \omega_n^{1/n} |E|^{\frac{n-1}{n}}.
     \]
-    By \eqref{thm: steiner inequality}, \(P(E)=P(S_v(E))\) for every unit vector \(v \in \R^n\). Up to a translation, arguing exactly as in Lemma~\ref{lemma: constrained isoperimetric inequality} we have that all the sections \(E\)
-    \[
-        E_v \coloneq  \{ s \in \R \colon sv \in E\}, \qquad v\in \R^n, \ |v|=1,
-    \]
-    are equal. Since \(E\) is unbounded, we have \(E_v=\R\) for every unit vector \(v \in \R^n\), but then \(E=\R^n\), a contradiction in because we assumed that \(|E|<\infty\).
+    By \eqref{thm: steiner inequality}, \(P(E)=P(S_v(E))\) for every unit vector \(v \in \R^n\). Up to a translation, arguing exactly as in Lemma~\ref{lemma: constrained isoperimetric inequality} we have that \(E\) is a union of concentric balls. Since \(E\) is unbounded, we have that \(E=\R^n\), a contradiction because we assumed that \(|E|<\infty\).
 \end{proof}
 
 

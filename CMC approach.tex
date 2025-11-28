@@ -1,19 +1,17 @@
 Adopting the point of view of differential geometry, we could have used a completely different approach. Indeed, fix \(m>0\) and let
 \begin{equation}\label{eq: isoperimetric problem}
-    \alpha(m) \coloneq \inf\left\{ \Haus^{n-1}(\Sigma) \left| \ \begin{aligned}
+    \alpha(n,m) \coloneq \inf\left\{ \Haus^{n-1}(\Sigma) \left| \ \begin{aligned}
         &\Sigma = \de \Omega \text{ smooth, connected,}\\
         &\text{compact hypersurface}, |\Omega|=m
     \end{aligned}
     \right.\right\}.
 \end{equation}
 
-Suppose that \(\Sigma= \de \Omega\) is a minimizer, that is, \(\Haus^{n-1}(\Sigma) = \alpha(m)\) and \(|\Omega|=m\). Let \(\nu \colon \Sigma \to \Sp^{n-1}\) be the outer unit normal of \(\Sigma\), \(A\) its second fundamental form, defined\footnote{
-Note that, identifying the tangent spaces as subspaces of \(\R^n\) in the usual way, the scalar product makes sense. Actually, \(T_{\nu(x)} \Sp^{n-1}=T_x\Sigma \subset \R^n\) by definition of unit normal.
-} by 
+Suppose that \(\Sigma= \de \Omega\) is a minimizer, that is, \(\Haus^{n-1}(\Sigma) = \alpha(m)\) and \(|\Omega|=m\). Let \(\nu \colon \Sigma \to \Sp^{n-1}\) be the outer unit normal of \(\Sigma\), \(A\) its second fundamental form, defined by 
 \[
     A(X,Y)=\dif \nu_x [X] \cdot Y
 \]
-for every tangent vectors \(X,Y \in T_x \Sigma\), and \(H = \tr(A)\) its mean curvature. By the inverse function theorem and by the compactness of \(\Sigma\), there is \(\eps>0\) such that 
+for every tangent vectors \(X,Y \in T_x \Sigma = T_{\nu(x)}\Sp^{n-1} \subset \R^n\), and \(H = \tr(A)\) its mean curvature. By the inverse function theorem and by the compactness of \(\Sigma\), there is \(\eps>0\) such that 
 \[
     \phi(t,x) = x + t\nu(x),
 \]
@@ -49,10 +47,7 @@ Since this hold for every \(u:\Sigma \to \R\) with zero average, \(H\) is consta
 
 Taking the second derivative with respect to \(t\), the second variation formula implies that
 \begin{equation}\label{eq: stability inequality}
-\begin{aligned}
-    0 &\le \int_\Sigma |\nabla_\Sigma u|^2 - (|A|^2-H^2) u^2  \ \dif \Haus^{n-1} \\
-    &= \int_\Sigma |\nabla_\Sigma u|^2 - |A|^2 u^2 \ \dif \Haus^{n-1}= - \int_\Sigma u L_\Sigma u \ \dif \Haus^{n-1}
-\end{aligned}
+    0 \le \int_\Sigma |\nabla_\Sigma u|^2 - |A|^2 u^2  \ \dif \Haus^{n-1} = - \int_\Sigma u L_\Sigma u \ \dif \Haus^{n-1}
 \end{equation}
 for every smooth function \(u\) with zero average, where 
 \[
@@ -66,15 +61,18 @@ This approach can give another proof of the isoperimetric inequality. In particu
     Let \(\Sigma\) be a compact, connected, orientable, immersed CMC hypersurface in \(\R^n\). Then \(\Sigma\) is CMC-stable if and only if \(\Sigma\) is a round sphere.
 \end{thm}
 
-The proof is basically just a computation: test the function \(u(x) = H (\nu(x) \cdot x)-n+1\) in \eqref{eq: stability inequality}. 
+The proof is basically just a computation: test \eqref{eq: stability inequality} with the function 
+\[
+    u(x) = H (\nu(x) \cdot x)-n+1 \qquad \forall x \in \Sigma.
+\]
 
-A.D. Alexandrov, with the celebrated \emph{moving plane method} (i.e., the maximum principle), proved that actually spheres are the only \emph{critical points} of the area functional with respect to variations with fixed volume.
+A.D. Alexandrov, with the celebrated \emph{moving plane method} (which heavily uses the strong maximum principle), proved that spheres are the only \emph{critical points} of the area functional with respect to variations with fixed volume.
 
 \begin{thm}[Alexandrov, {\cite{Alexandrov1962}}]
     Let \(\Sigma\) be a compact, connected, embedded CMC hypersurface in \(\R^n\). Then \(\Sigma\) is a round sphere.
 \end{thm}
 
-\emph{A posteriori}, assuming that \(\Sigma\) is connected in the isoperimetric problem \eqref{eq: isoperimetric problem} is not restrictive. In fact assume that \(\Sigma = \de \Omega\) is not connected. Let \(\Omega_1, \dots, \Omega_k\) be the connected components of \(\Omega\), and \(\Sigma_0^j,\dots,\Sigma_{N(j)}^j\) the connected components of \(\Sigma\) such that \(\de \Omega_j = \bigcup_i \Sigma_i^j\). Since each \(\Sigma_i^j\) is CMC-stable, by Theorem~\ref{thm: Barbosa-do Carmo} it's a round sphere, so \(\Sigma_i^j\) a boundary of a ball \(B_i^j\). Hence, every \(\Omega_j\) must be obtained by removing some disjoint balls \(B_1^j,\dots, B_{N(j)}^i\) from an initial big ball \(B_0^j\) of radius \(R_j\). Denote \(\Omega^* = \bigcup_j B_0^j \supset \Omega\) and \(\Sigma^* = \de \Omega^* \subset \Sigma\). Then it's easy to see (for example, by induction over \(k\)) that
+\emph{A posteriori}, it is not restrictive to assume that \(\Sigma\) is connected in the isoperimetric problem \eqref{eq: isoperimetric problem}. In fact assume that \(\Sigma = \de \Omega\) is not connected. Let \(\Omega_1, \dots, \Omega_k\) be the connected components of \(\Omega\), and \(\Sigma_0^j,\dots,\Sigma_{N(j)}^j\) the connected components of \(\Sigma\) such that \(\de \Omega_j = \bigcup_i \Sigma_i^j\). Since each \(\Sigma_i^j\) is CMC-stable, by Theorem~\ref{thm: Barbosa-do Carmo} it's a round sphere, so \(\Sigma_i^j\) a boundary of a ball \(B_i^j\). Hence, every \(\Omega_j\) must be obtained by removing some disjoint balls \(B_1^j,\dots, B_{N(j)}^i\) from an initial big ball \(B_0^j\) of radius \(R_j\). Denote \(\Omega^* = \bigcup_j B_0^j \supset \Omega\) and \(\Sigma^* = \de \Omega^* \subset \Sigma\). Then it's easy to see (for example, by induction over \(k\)) that
 \[
 \begin{aligned}
     \Haus^{n-1}(\Sigma^*)^n &= \left(n \omega_n \sum_{j=1}^k R_j^{n-1}\right)^n = n^n \omega_n^n \left( \sum_{j=1}^k R_j^{n-1}\right)^n \\
@@ -88,10 +86,10 @@ with strict inequality whenever \(k>1\), which is indeed the case if \(\Sigma=\S
 \]
 
 
-However, this approach encounters an insurmountable limit in higher dimension: we are implicitly assuming that the category of sets with smooth boundary contains the minimizers of the isoperimetric problem. This is not obvious at all. Indeed, for dimension \(n \ge 8\) there exist area minimizing hypersurfaces that present singularities. This phenomena was first discovered by J. Simons in \cite{Simons_MinimalVarieties1968}, where he proved that the cone (which has been named after him)
+However, this approach encounters an insurmountable limit in high dimension: we are implicitly assuming that the category of sets with smooth boundary contains the minimizers of the isoperimetric problem. Although \emph{a posteriori} this is true, it is still is not obvious nor easy to prove \emph{a priori}. Indeed, for dimension \(n \ge 8\) there exist CMC-stable hypersurfaces that are the boundary of (unbounded) domains and that present singularities. This phenomena was first discovered by J. Simons in \cite{Simons_MinimalVarieties1968}, where he proved that the cone (which has been named after him)
 \[
     C \coloneq \{ (x,y) \in \R^4 \times \R^4 \colon |x|=|y|\}
 \]
-is a stable minimal hypersurface away from 0, i.e., \(H=0\) and the inequality \eqref{eq: stability inequality} holds with every compact supported function \(u\) on \(C\setminus\{0\}\). One year later, Bombieri, De Giorgi and Giusti proved that \(C\) is actually area minimizing \cite{BombieriDeGiorgiGiusti_Bernstein1969} and found examples for every \(n \ge 8\).
+is a stable minimal hypersurface away from 0, i.e., \(H=0\) and the inequality \eqref{eq: stability inequality} holds with every compactly supported function \(u\) on \(C\setminus\{0\}\). One year later, Bombieri, De Giorgi and Giusti proved that \(C\) is actually area minimizing \cite{BombieriDeGiorgiGiusti_Bernstein1969} and found similar examples for every \(n \ge 8\).
 
-In general, an area minimizing ‘‘hypersurface'' \(\Sigma \subset \R^n\) (here, we should use the language of currents and substitute \(\Sigma\) with an \((n-1)\)-integral current) is smooth if \(n \le 7\), while if \(n \ge 8\) its singular set has Hausdorff dimension at most \((n-1)-7\). This result has been proved with the hard work of many great mathematicians such as Fleming and De Giorgi (\(n=3\), \cite{Fleming, DeGiorgi1965}), Almgren (\(n=4\), \cite{Almgren_InteriorRegularity}), Simons (\(5\le n \le 7\), \cite{Simons_MinimalVarieties1968}) and Federer (\(n \ge 8\), \cite{Federer1970}). 
+In general, an area minimizing ‘‘hypersurface'' \(\Sigma \subset \R^n\) (here, we should actually use the language of currents) must be smooth smooth if \(n \le 7\), while if \(n \ge 8\) \emph{a priori} we only know that its singular set has Hausdorff dimension at most \((n-1)-7\). This result has been proved with the hard work of many great mathematicians such as Fleming and De Giorgi (\(n=3\), \cite{Fleming, DeGiorgi1965}), Almgren (\(n=4\), \cite{Almgren_InteriorRegularity}), Simons (\(5\le n \le 7\), \cite{Simons_MinimalVarieties1968}) and Federer (\(n \ge 8\), \cite{Federer1970}). 

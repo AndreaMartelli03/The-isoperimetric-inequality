@@ -1,4 +1,4 @@
-Let us recall the definition of Steiner symmetrization. Write \(\R^n = \R^{n-1}\times \R\) with coordinates \(x=(z,t)\), \(z \in \R^{n-1}\), \(t=x_n \in \R\). Let \(E \subset \R^n\) and fix a unit vector \(v\in \R^n\). For every \(z \in \langle v \rangle^\perp= \R^{n-1}\), consider the \emph{\(v\)-vertical \(z\)-slice}
+Let us recall the definition of Steiner symmetrization. Let \(E \subset \R^n\) and fix a unit vector \(v\in \R^n\). For every \(z \in \langle v \rangle^\perp= \R^{n-1}\), consider the \emph{\(v\)-vertical \(z\)-slice}
 \[
     E_z^v \coloneq \{ t \in \R \colon z+tv \in E\} \subset \R.
 \]
@@ -10,7 +10,7 @@ By Fubini's theorem, \(|S_v(E)|=|E|\). It is also quite easy to prove that
 \[
     \diam(S_v(E)) \le \diam(E).
 \]
-In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) with a suitable change of coordinates, that is, we take \(v = e_n\). 
+In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) with a suitable change of coordinates, that is, we take \(v = e_n\). The usual notation will then be to write \(\R^n = \R^{n-1}\times \R\) with coordinates \(x=(z,t)\), \(z=(x_1,\dots,x_{n-1}) \in \R^{n-1}\), \(t=x_n \in \R\).
 
 \begin{thm}[Steiner inequality]\label{thm: steiner inequality}
     Let \(E\subset \R^n\) be a set with \(|E|<\infty\) and finite perimeter \(P(E)<\infty\). Then for every unit vector \(v \in \R^n\)
@@ -21,13 +21,13 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
 \end{thm}
 
 \begin{proof}
-    Without loss of generality, assume that \(v=e_n\) and denote \(E_z=E_z^v\), \(E^s \coloneq S_{e_n}(E)\). We divide the proof in three steps.
+    Without loss of generality, assume that \(v=e_n\) and denote \(E_z=E_z^v\), \(E^s \coloneq S_{e_n}(E)\). We divide the proof into three steps.
     
-    \emph{Step 1}. Assume that \(E\) is a bounded set with polyhedral boundary \(\de E\), and that the outer unit normal to \(E\) (defined \(\Haus^{n-1}\)-a.e. on \(\de E\)) is never orthogonal to \(e_n\). In particular, \(P(E)<\infty\) and \(|D\chi_E| = \Haus^{n-1}\resmes \de E\). Let \(G\) be the projection of \(E\) on \(\R^{n-1}\), or equivalently
+    \emph{Step 1}. Assume that \(E\) is a bounded set with polyhedral boundary \(\de E\), and that the outer unit normal \(\mathbf{n}_{\de E}\) of \(E\) is never orthogonal to \(e_n\). In particular, \(P(E)<\infty\) and \(|D\chi_E| = \Haus^{n-1}\resmes \de E\). Let \(G\) be the \emph{essential projection} of \(E\) on \(\R^{n-1}\), that is,
     \[
-        G= \{ z \in \R^{n-1} \colon \Leb^1(E_z)>0\}.
+        G \coloneq \{ z \in \R^{n-1} \colon \Leb^1(E_z)>0\}.
     \]
-    Then in the definition of set with polyhedral boundary, we can always take \(T\) to be a translation, so there exist a finite partition \(\{G_h\}_{h=1}^M\) of \(G\) made of \((n-1)\)-polyhedral sets and affine functions 
+    Since \(\mathbf{n}_{\de E}\) is never orthogonal to \(e_n\), in the definition of set with polyhedral boundary, we can always take \(T\) to be a translation, so there exist a finite partition \(\{G_h\}_{h=1}^M\) of \(G\) made of \((n-1)\)-polyhedral sets and affine functions 
     \[
         v_h^1, u_h^1, \dots, v^{N(h)}_h, u_h^{N(h)} \colon \R^{n-1} \to \R,
     \]
@@ -35,10 +35,10 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
     \begin{equation*}
     \begin{aligned}
         \de E &= \bigcup_{h=1}^M \bigcup_{k=1}^{N(h)} \Gamma(u_h^k,G_h) \cup \Gamma(v_h^k,G_h) \\
-        E &= \bigcup_{h=1}^M \left\{(z,t) \in G_h \times \R \colon t \in \bigcup_{k=1}^{N(h)}(v_h^k(z), u_h^k(z))\right\}.
+        E &= \bigcup_{h=1}^M \left\{(z,t) \in G_h \times \R \colon t \in \bigcup_{k=1}^{N(h)}(v_h^k(z), u_h^k(z))\right\}
     \end{aligned}
     \end{equation*}
-
+    (see Figure~\ref{fig: polyhedral set}).
     \begin{figure}[ht]
 		\centering
 		\begin{tikzpicture}
@@ -73,7 +73,7 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
         \node at (0,1){\(v_2^2\)};
         \node at (0,3){\(u_2^2\)};
     
-        \node at (1.5,-2){\(v_3^1\)};
+        \node at (1.5,-2.1){\(v_3^1\)};
         \node at (1.5,-0.5){\(u_3^1\)};
         \node at (1.5,1){\(v_3^2\)};
         \node at (1.5,2.2){\(u_3^2\)};
@@ -84,14 +84,13 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
         \node at (3,1.8){\(u_4^1\)};
         
 		\end{tikzpicture}
-        \caption{Notation in step 1 of the proof of Theorem~\ref{thm: steiner inequality}.}
+        \caption{Notation adopted in step 1 of the proof of Theorem~\ref{thm: steiner inequality}.}
         \label{fig: polyhedral set}
 	\end{figure}
-    
-    With this notation,
+    With this notation, 
     \begin{equation}\label{eq: polyhedral perimeter}
     \begin{aligned}
-        P(E) &= \Haus^{n-1}(\de E) = \sum_{h=1}^M\Haus^{n-1}(\de E \cap G_h \times \R) \\
+        P(E) &= \Haus^{n-1}(\de E) = \sum_{h=1}^M\Haus^{n-1}(\de E \cap(G_h \times \R)) \\
         &= \sum_{h=1}^M \int_{G_h}\sum_{k=1}^{N(h)} \left( \sqrt{1+ |\nabla v_h^k|^2} + \sqrt{1+ |\nabla u_h^k|^2} \right)\dif z.
     \end{aligned}
     \end{equation}    
@@ -113,7 +112,7 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
     \[
         E^s = \{ (z,t) \in \R^{n-1}\times \R \colon |t| < m(z)/2\}
     \]
-    is a bounded set with polyhedral boundary, so in particular it has finite perimeter and \(|D\chi_{E^s}|= \Haus^{n-1}\resmes \de E^s\). By the area formula,
+    is a bounded set with polyhedral boundary, and in particular it has finite perimeter and \(|D\chi_{E^s}|= \Haus^{n-1} \resmes (\Gamma(m/2,G) \cup \Gamma(-m/2,G))\) given by
     \begin{equation}\label{eq: symmetrized polyhedral perimeter}
     \begin{aligned}
         P(E^s) &= \Haus^{n-1}(\de E^s) = 2 \int_G \sqrt{1+ \left|\frac{1}{2} \nabla m \right|^2} \dif z \\
@@ -121,29 +120,28 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
     \end{aligned}
     \end{equation}
 
-    By \eqref{eq: m(z)} and the convexity of the function \(z \mapsto \sqrt{1+|z|^2}\), for every \(h=1,\dots, M\)
+    By \eqref{eq: m(z)} and the convexity of the function \(z \mapsto \sqrt{1+|z|^2}\),
     \begin{align*}
-        \sum_{k=1}^{N(h)} \sqrt{1+|\nabla v_h^k|^2} + \sqrt{1+|\nabla u_h^k|^2} &\ge 2\sum_{k=1}^{N(h)} \sqrt{ 1+ \left|\frac{\nabla u_h^k-\nabla v_h^k}{2}\right|^2} \\
-        &= 2N(h)\sum_{k=1}^{N(h)} \frac{1}{N(h)} \sqrt{ 1+ \left|\frac{\nabla u_h^k-\nabla v_h^k}{2}\right|^2}\\
-        &\ge 2N(h) \sqrt{ 1+ \left|\sum_{k=1}^{N(h)} \frac{1}{N(h)}\frac{\nabla u_h^k-\nabla v_h^k}{2}\right|^2}\\
-        &= \sqrt{4N(h)^2+|\nabla m|^2}.
+        \sum_{k=1}^{N(h)} \sqrt{1+|\nabla v_h^k|^2} + \sqrt{1+|\nabla u_h^k|^2} &\ge 2N(h) \sqrt{ 1+ \left|\sum_{k=1}^{N(h)} \frac{\nabla u_h^k-\nabla v_h^k}{2N(h)}\right|^2}\\
+        &= \sqrt{4N(h)^2+|\nabla m|^2}
     \end{align*}
+    for every \(h \in \{1,\dots,M\}\).
     Therefore, by \(\eqref{eq: polyhedral perimeter}\) and \(\eqref{eq: symmetrized polyhedral perimeter}\), 
     \begin{equation}\label{eq: P(E^s)<(int)<P(E)}
-        P(E^s) \le \sum_{k=1}^{N(h)} \int_{G_h} \sqrt{4N(h)^2+|\nabla m|^2} \dif z \le P(E).
+        P(E^s) \le \sum_{h=1}^{M} \int_{G_h} \sqrt{4N(h)^2+|\nabla m|^2} \dif z \le P(E).
     \end{equation}
 
     We have just found that
-    \begin{align*}
-        P(E)-P(E^s) &\ge \sum_{N(h)\ge 2} \int_{G_h} \left(\sqrt{4N(h)^2+|\nabla m|^2} - \sqrt{4+|\nabla m|^2} \right)\dif z\\
-        &= \sum_{N(h)\ge 2} \int_{G_h} \frac{4(N(h)^2-1)}{\sqrt{4N(h)^2+|\nabla m|^2} + \sqrt{4+|\nabla m|^2}}\dif z\\
+    \begin{align}\label{eq: P(E)-P(E^s)}
+        P(E)-P(E^s) &\ge \sum_{N(h)\ge 2} \int_{G_h} \left(\sqrt{4N(h)^2+|\nabla m|^2} - \sqrt{4+|\nabla m|^2} \right)\dif z \nonumber\\
+        &= \sum_{N(h)\ge 2} \int_{G_h} \frac{4(N(h)^2-1)}{\sqrt{4N(h)^2+|\nabla m|^2} + \sqrt{4+|\nabla m|^2}}\dif z \nonumber\\
         & \ge \sum_{N(h)\ge 2} \int_{G_h} 2 \frac{1}{\sqrt{4N(h)^2 + |\nabla m|^2}} \dif z.
-    \end{align*}
+    \end{align}
     If
     \[
         D \coloneq \{ z \in \R^{n-1} \colon E_z \text{ is not an interval}\} = \bigcup_{N(h)\ge 2} G_h,
     \]
-    then by Cauchy-Schwarz inequality and \eqref{eq: P(E^s)<(int)<P(E)},
+    then by Cauchy-Schwarz inequality, \eqref{eq: P(E^s)<(int)<P(E)} and \eqref{eq: P(E)-P(E^s)},
     \begin{equation}\label{eq: estimate on D}
         \begin{aligned}
             2\Leb^{n-1}(D)^2 &= 2 \left( \sum_{N(h)\ge 2}\int_{G_h} \frac{(4N(h)^2+|\nabla m|^2)^{1/4}}{(4N(h)^2+|\nabla m|^2)^{1/4}} \right)^2 \\
@@ -155,13 +153,13 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
     \[
         E_h \to E, \qquad P(E_h) \to P(E).
     \]
-    Note that we can assume that the outer unit normal of \(\de E_h\) is never orthogonal to \(e_n\). Indeed, this is an ‘‘open condition'', so if it happens that the unit normal of \(\de E_h\) is orthogonal to \(e_n\), we only need to rotate slightly \(\de E\). Doing smaller and smaller rotations as \(h \to \infty\), we still have that \(E_h \to E\) (while \(P(E_h) \to P(E)\) isn't affected by rotations). 
+    Note that we can assume that the outer unit normals \(\mathbf{n}_{\de E_h}\) of \(E_h\) are never orthogonal to \(e_n\). Indeed, as explained in Remark~\ref{rmk: unit normal of sets with polyhedral boundary}, each \(\mathbf{n}_{\de E_h}\) assumes finitely many values of \(\Sp^{n-1}\), so if it happens that \(\mathbf{n}_{\de E_h} \perp e_n\) somewhere, we only need to rotate slightly \(\de E\). Doing smaller and smaller rotations as \(h \to \infty\), we still have that \(E_h \to E\) (while \(P(E_h) \to P(E)\) isn't affected by rotations). 
     
     Observe that, since \((E_h \triangle E)_z=((E_h)_z\triangle E_z)\), by Fubini
     \[
         \int_{\R^{n-1}} \Leb^1((E_h)_z \triangle E_z) \dif z = |E_h \triangle E| \to 0,
     \]
-    so \((E_h)_z \to E_z\) for a.e. \(z \in \R^{n-1}\), and by the lower semicontinuity of the perimeter
+    so \((E_h)_z \to E_z\) for a.e. \(z \in \R^{n-1}\), and by lower semicontinuity of the perimeter
     \begin{equation}\label{eq: P(E_z) < liminf P(E_hz)}
         P(E_z) \le \liminf_{h \to \infty}P((E_h)_z).
     \end{equation}
@@ -178,22 +176,10 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
     \begin{equation}\label{eq: step 1 to E_h}
         P(E_h^s) \le P(E_h), \qquad 2 \Leb^{n-1}(D_h)^2 \le P(E_h)(P(E_h)-P(E_h^s)).
     \end{equation}
-    Moreover, by Fubini's theorem,
-    \begin{equation*}
-    \begin{aligned}
-        |E\triangle E_h| &= \int_{\R^{n-1}} \Leb^1((E_h)_z \triangle E_z) \dif z \\
-        &\ge \int_{\R^{n-1}}|m_h(z)- m(z)| \dif z = |E_h^s \triangle E^s|,
-    \end{aligned}
-    \end{equation*}
-    so in particular \(E_h^s \to E^s\) and by lower semicontinuity
-    \[
-        P(E^s) \le \liminf_{h \to \infty} P(E_h^s) \le \lim_{h \to \infty} P(E_h) = P(E).
-    \]
-
-    Now, assume that \(P(E)=P(E^s)\) and let us prove that \(E_z\) is equivalent to an interval for a.e. \(z \in \R^{n-1}\). Moreover, since \(E_h \to E\), we have that
-    \begin{equation*}
+    Since \(E_h \to E\), we have that
+    \begin{equation}\label{eq: G_h -> G}
         G_h \to G.
-    \end{equation*}
+    \end{equation}
     Indeed, \(G_h \triangle G\) is equivalent to
     \[
         \{ z \in \R^{n-1} \colon \Leb^1((E_h)_z \triangle E_z) >0\} = \bigsqcup_{k \in \Z} G_h^k,
@@ -208,25 +194,41 @@ In what follows, we will always identify \(\langle v \rangle^\perp = \R^{n-1}\) 
     \end{align*}
     and taking the limsup as \(h \to 0\), we get \(\limsup_{h \to \infty}\Leb^{n-1}(G_h \triangle G) = 0\).
     
-    Then, by \eqref{eq: step 1 to E_h}, \(\chi_{D_h} \to 0\) in \(L^1(\R^{n-1})\), so, up to passing to a subsequence, we have the pointwise limit
+    Let us prove that \(P(E^s) \le P(E)\). By Fubini's theorem,
+    \begin{equation*}
+    \begin{aligned}
+        |E_h^s \triangle E^s| &= \int_{\R^{n-1}}|m_h(z)- m(z)| \dif z \\
+            &\le \int_{\R^{n-1}} \Leb^1((E_h)_z \triangle E_z) \dif z =|E\triangle E_h|
+    \end{aligned}
+    \end{equation*}
+    having used that \(|\Leb^1(A)-\Leb^1(B)| \le \Leb^1(A\triangle B) \) for every \(A,B \subset \R\). In particular \(E_h^s \to E^s\) and by lower semicontinuity
+    \[
+        P(E^s) \le \liminf_{h \to \infty} P(E_h^s) \le \lim_{h \to \infty} P(E_h) = P(E).
+    \]
+
+    Now, assume that \(P(E)=P(E^s)\) and let us prove that \(E_z\) is equivalent to an interval for a.e. \(z \in \R^{n-1}\). By \eqref{eq: step 1 to E_h} and \eqref{eq: G_h -> G}, \(\chi_{D_h} \to 0\) and \(\chi_{G_h} \to \chi_G\) in \(L^1(\R^{n-1})\), so, up to passing to a subsequence, we have the pointwise limit
     \[
         \chi_{G}(z) = \lim_{h \to \infty}\chi_{G_h\setminus D_h}(z)
     \]
-    for a.e. \(z \in \R^{n-1}\). By \eqref{eq: P(E_z) < liminf P(E_hz)},
+    for a.e. \(z \in \R^{n-1}\). Combining this with \eqref{eq: P(E_z) < liminf P(E_hz)},
     \[
         \chi_G(z)P(E_z) \le \liminf \chi_{G_h \setminus D_h}(z)P((E_h)_z) \qquad \text{ for a.e. } z \in \R^{n-1},
     \]
-    therefore, by Fatou's lemma,
+    and, by Fatou's lemma,
     \begin{equation*}
     \begin{aligned}
         \int_G P(E_z) \dif z & \le \int_{\R^{n-1}} \liminf \chi_{G_h \setminus D_h}(z)P((E_h)_z) \dif z\\
         &\le \liminf_{h \to \infty} \int_{G_h \setminus D_h}P((E_h)_z) \dif z\\
         &= 2 \liminf_{h \to \infty} \Leb^{n-1}(G_h \setminus D_h)\\
-        &= 2 \Leb^{n-1}(G) \\
-        &\le \int_G P(E_z) \dif z
+        &= 2 \Leb^{n-1}(G)
     \end{aligned}
     \end{equation*}
-    having used that for every \(z \in G_h \setminus D_h\) the slice \((E_h)_z\) is equivalent to a bounded interval, and the 1-dimensional isoperimetric inequality, i.e., that \(P(E_z) \ge 2\) for a.e. \(z \in \R^{n-1}\). Then, \(P(E_z)=2\) for a.e. \(z \in \R^{n-1}\), so, by the characterization of the equality in the 1-dimensional case, \(E_z\) is an interval for a.e. \(z \in \R^{n-1}\). 
+    having used that for every \(z \in G_h \setminus D_h\), the slice \((E_h)_z\) is equivalent to a bounded interval, so \(P(E_z)=2\). 
+    But by the 1-dimensional isoperimetric inequality, \(P(E_z) \ge 2\) for a.e. \(z \in \R^{n-1}\), so 
+    \[
+        \int_GP(E_z) \dif z \le 2\Leb^{n-1}(G) \le \int_G P(E_z),
+    \]
+    and this implies that \(P(E_z)=2\) for a.e. \(z \in G\). By the characterization of the equality in the 1-dimensional isoperimetric inequality, \(E_z\) is an interval for a.e. \(z \in G\). If \(z \in \R^n \setminus G\), \(\Leb^1(E_z)=0\), so \(E_z\) is equivalent to the empty set (which is trivially an interval).
 \end{proof}
 
 \begin{lemma}
