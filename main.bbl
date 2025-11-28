@@ -1,0 +1,366 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global/global}
+    \entry{Alexandrov1962}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=bf8d3add26021614443ae065b2a90a4c}{%
+           family={Alexandrov},
+           familyi={A\bibinitperiod},
+           given={A.\bibnamedelimi D.},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{bf8d3add26021614443ae065b2a90a4c}
+      \strng{fullhash}{bf8d3add26021614443ae065b2a90a4c}
+      \strng{fullhashraw}{bf8d3add26021614443ae065b2a90a4c}
+      \strng{bibnamehash}{bf8d3add26021614443ae065b2a90a4c}
+      \strng{authorbibnamehash}{bf8d3add26021614443ae065b2a90a4c}
+      \strng{authornamehash}{bf8d3add26021614443ae065b2a90a4c}
+      \strng{authorfullhash}{bf8d3add26021614443ae065b2a90a4c}
+      \strng{authorfullhashraw}{bf8d3add26021614443ae065b2a90a4c}
+      \field{labelalpha}{Ale62}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annali di Matematica Pura ed Applicata}
+      \field{number}{1}
+      \field{title}{A characteristic property of spheres}
+      \field{volume}{58}
+      \field{year}{1962}
+      \field{pages}{303\bibrangedash 315}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1007/BF02413056
+      \endverb
+    \endentry
+    \entry{Almgren_InteriorRegularity}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=c85c23d7dc446a3bfb3ec9e47acc0976}{%
+           family={Almgren},
+           familyi={A\bibinitperiod},
+           given={F.\bibnamedelimi J.},
+           giveni={F\bibinitperiod\bibinitdelim J\bibinitperiod},
+           suffix={Jr.},
+           suffixi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{c85c23d7dc446a3bfb3ec9e47acc0976}
+      \strng{fullhash}{c85c23d7dc446a3bfb3ec9e47acc0976}
+      \strng{fullhashraw}{c85c23d7dc446a3bfb3ec9e47acc0976}
+      \strng{bibnamehash}{c85c23d7dc446a3bfb3ec9e47acc0976}
+      \strng{authorbibnamehash}{c85c23d7dc446a3bfb3ec9e47acc0976}
+      \strng{authornamehash}{c85c23d7dc446a3bfb3ec9e47acc0976}
+      \strng{authorfullhash}{c85c23d7dc446a3bfb3ec9e47acc0976}
+      \strng{authorfullhashraw}{c85c23d7dc446a3bfb3ec9e47acc0976}
+      \field{labelalpha}{Alm66}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0003-486X}
+      \field{journaltitle}{Ann. of Math. (2)}
+      \field{title}{Some interior regularity theorems for minimal surfaces and an extension of {B}ernstein's theorem}
+      \field{volume}{84}
+      \field{year}{1966}
+      \field{pages}{277\bibrangedash 292}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.2307/1970520
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.2307/1970520
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.2307/1970520
+      \endverb
+    \endentry
+    \entry{BarbosaDoCarmo}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=c6c790599c14c40c7a95c64a35280101}{%
+           family={Barbosa},
+           familyi={B\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f7f70d511c1f98c3820bf5df23a91e21}{%
+           family={Carmo},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           prefix={do},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \strng{namehash}{401fa38db59d4edbc49ec33a2aeac7be}
+      \strng{fullhash}{401fa38db59d4edbc49ec33a2aeac7be}
+      \strng{fullhashraw}{401fa38db59d4edbc49ec33a2aeac7be}
+      \strng{bibnamehash}{401fa38db59d4edbc49ec33a2aeac7be}
+      \strng{authorbibnamehash}{401fa38db59d4edbc49ec33a2aeac7be}
+      \strng{authornamehash}{401fa38db59d4edbc49ec33a2aeac7be}
+      \strng{authorfullhash}{401fa38db59d4edbc49ec33a2aeac7be}
+      \strng{authorfullhashraw}{401fa38db59d4edbc49ec33a2aeac7be}
+      \field{labelalpha}{BC84}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-642-25587-8}
+      \field{journaltitle}{Math. Z.}
+      \field{month}{09}
+      \field{title}{Stability of Hypersurfaces with Constant Mean Curvature}
+      \field{volume}{185}
+      \field{year}{1984}
+      \field{pages}{339\bibrangedash 353}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1007/BF01215045
+      \endverb
+    \endentry
+    \entry{BombieriDeGiorgiGiusti_Bernstein1969}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=06bd1ebaa0f7fd422ac3fceff4db07b7}{%
+           family={Bombieri},
+           familyi={B\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=d43d1520b7203fac01a0e45709560016}{%
+           family={De\bibnamedelima Giorgi},
+           familyi={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=0ed8cb93a7bc71e199a874c46d2af149}{%
+           family={Giusti},
+           familyi={G\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{b60782301786e41c9394c7807e8e27e9}
+      \strng{fullhash}{b60782301786e41c9394c7807e8e27e9}
+      \strng{fullhashraw}{b60782301786e41c9394c7807e8e27e9}
+      \strng{bibnamehash}{b60782301786e41c9394c7807e8e27e9}
+      \strng{authorbibnamehash}{b60782301786e41c9394c7807e8e27e9}
+      \strng{authornamehash}{b60782301786e41c9394c7807e8e27e9}
+      \strng{authorfullhash}{b60782301786e41c9394c7807e8e27e9}
+      \strng{authorfullhashraw}{b60782301786e41c9394c7807e8e27e9}
+      \field{labelalpha}{BDG69}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Inventiones mathematicae}
+      \field{number}{3}
+      \field{title}{Minimal cones and the Bernstein problem}
+      \field{volume}{7}
+      \field{year}{1969}
+      \field{pages}{243\bibrangedash 268}
+      \range{pages}{26}
+      \verb{doi}
+      \verb 10.1007/BF01404309
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/BF01404309
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/BF01404309
+      \endverb
+    \endentry
+    \entry{DeGiorgi1965}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=d43d1520b7203fac01a0e45709560016}{%
+           family={De\bibnamedelima Giorgi},
+           familyi={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {ita}%
+      }
+      \list{publisher}{1}{%
+        {Scuola normale superiore}%
+      }
+      \strng{namehash}{d43d1520b7203fac01a0e45709560016}
+      \strng{fullhash}{d43d1520b7203fac01a0e45709560016}
+      \strng{fullhashraw}{d43d1520b7203fac01a0e45709560016}
+      \strng{bibnamehash}{d43d1520b7203fac01a0e45709560016}
+      \strng{authorbibnamehash}{d43d1520b7203fac01a0e45709560016}
+      \strng{authornamehash}{d43d1520b7203fac01a0e45709560016}
+      \strng{authorfullhash}{d43d1520b7203fac01a0e45709560016}
+      \strng{authorfullhashraw}{d43d1520b7203fac01a0e45709560016}
+      \field{labelalpha}{De 65}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annali della Scuola Normale Superiore di Pisa - Classe di Scienze}
+      \field{number}{1}
+      \field{title}{Una estensione del teorema di Bernstein}
+      \field{volume}{19}
+      \field{year}{1965}
+      \field{pages}{79\bibrangedash 85}
+      \range{pages}{7}
+      \verb{urlraw}
+      \verb http://eudml.org/doc/83342
+      \endverb
+      \verb{url}
+      \verb http://eudml.org/doc/83342
+      \endverb
+      \keyw{variational calculus}
+    \endentry
+    \entry{Federer1970}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=34d62fcf421a862251145cc381d0cf3f}{%
+           family={Federer},
+           familyi={F\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{34d62fcf421a862251145cc381d0cf3f}
+      \strng{fullhash}{34d62fcf421a862251145cc381d0cf3f}
+      \strng{fullhashraw}{34d62fcf421a862251145cc381d0cf3f}
+      \strng{bibnamehash}{34d62fcf421a862251145cc381d0cf3f}
+      \strng{authorbibnamehash}{34d62fcf421a862251145cc381d0cf3f}
+      \strng{authornamehash}{34d62fcf421a862251145cc381d0cf3f}
+      \strng{authorfullhash}{34d62fcf421a862251145cc381d0cf3f}
+      \strng{authorfullhashraw}{34d62fcf421a862251145cc381d0cf3f}
+      \field{labelalpha}{Fed70}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bulletin of the American Mathematical Society}
+      \field{title}{The singular sets of area minimizing rectifiable currents with codimension one and of area minimizing flat chains modulo two with arbitrary codimension}
+      \field{volume}{76}
+      \field{year}{1970}
+      \field{pages}{767\bibrangedash 771}
+      \range{pages}{5}
+      \verb{urlraw}
+      \verb https://api.semanticscholar.org/CorpusID:42382353
+      \endverb
+      \verb{url}
+      \verb https://api.semanticscholar.org/CorpusID:42382353
+      \endverb
+    \endentry
+    \entry{Fleming}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=aa13c2f9be94dc4cd638c2247d679a00}{%
+           family={Fleming},
+           familyi={F\bibinitperiod},
+           given={W.\bibnamedelimi H.},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{aa13c2f9be94dc4cd638c2247d679a00}
+      \strng{fullhash}{aa13c2f9be94dc4cd638c2247d679a00}
+      \strng{fullhashraw}{aa13c2f9be94dc4cd638c2247d679a00}
+      \strng{bibnamehash}{aa13c2f9be94dc4cd638c2247d679a00}
+      \strng{authorbibnamehash}{aa13c2f9be94dc4cd638c2247d679a00}
+      \strng{authornamehash}{aa13c2f9be94dc4cd638c2247d679a00}
+      \strng{authorfullhash}{aa13c2f9be94dc4cd638c2247d679a00}
+      \strng{authorfullhashraw}{aa13c2f9be94dc4cd638c2247d679a00}
+      \field{labelalpha}{Fle62}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Rendiconti del Circolo Matematico di Palermo}
+      \field{number}{1}
+      \field{title}{On the oriented Plateau Problem}
+      \field{volume}{11}
+      \field{year}{1962}
+      \field{pages}{69\bibrangedash 90}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1007/BF02849427
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/BF02849427
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/BF02849427
+      \endverb
+    \endentry
+    \entry{Maggi_2012}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=1060f1384e739fbf9a923dc44299a592}{%
+           family={Maggi},
+           familyi={M\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{1060f1384e739fbf9a923dc44299a592}
+      \strng{fullhash}{1060f1384e739fbf9a923dc44299a592}
+      \strng{fullhashraw}{1060f1384e739fbf9a923dc44299a592}
+      \strng{bibnamehash}{1060f1384e739fbf9a923dc44299a592}
+      \strng{authorbibnamehash}{1060f1384e739fbf9a923dc44299a592}
+      \strng{authornamehash}{1060f1384e739fbf9a923dc44299a592}
+      \strng{authorfullhash}{1060f1384e739fbf9a923dc44299a592}
+      \strng{authorfullhashraw}{1060f1384e739fbf9a923dc44299a592}
+      \field{labelalpha}{Mag12}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Cambridge Studies in Advanced Mathematics}
+      \field{title}{Sets of Finite Perimeter and Geometric Variational Problems: An Introduction to Geometric Measure Theory}
+      \field{year}{2012}
+    \endentry
+    \entry{Simons_MinimalVarieties1968}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=3ac83da4c057c5a62c2cc45c55840985}{%
+           family={Simons},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {[Annals of Mathematics, Trustees of Princeton University on Behalf of the Annals of Mathematics, Mathematics Department, Princeton University]}%
+      }
+      \strng{namehash}{3ac83da4c057c5a62c2cc45c55840985}
+      \strng{fullhash}{3ac83da4c057c5a62c2cc45c55840985}
+      \strng{fullhashraw}{3ac83da4c057c5a62c2cc45c55840985}
+      \strng{bibnamehash}{3ac83da4c057c5a62c2cc45c55840985}
+      \strng{authorbibnamehash}{3ac83da4c057c5a62c2cc45c55840985}
+      \strng{authornamehash}{3ac83da4c057c5a62c2cc45c55840985}
+      \strng{authorfullhash}{3ac83da4c057c5a62c2cc45c55840985}
+      \strng{authorfullhashraw}{3ac83da4c057c5a62c2cc45c55840985}
+      \field{labelalpha}{Sim68}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0003486X, 19398980}
+      \field{journaltitle}{Annals of Mathematics}
+      \field{number}{1}
+      \field{title}{Minimal Varieties in Riemannian Manifolds}
+      \field{volume}{88}
+      \field{year}{1968}
+      \field{pages}{62\bibrangedash 105}
+      \range{pages}{44}
+      \verb{urlraw}
+      \verb http://www.jstor.org/stable/1970556
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/1970556
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
